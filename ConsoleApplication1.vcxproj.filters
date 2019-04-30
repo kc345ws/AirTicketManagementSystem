@@ -15,54 +15,60 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\add_fi.cpp">
+    <ClCompile Include="delete_fi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\browse_fi.cpp">
+    <ClCompile Include="add_fi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\create_uif.cpp">
+    <ClCompile Include="browse_fi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\flight_public_fun.cpp">
+    <ClCompile Include="create_uif.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\home.cpp">
+    <ClCompile Include="flight_public_fun.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\identify.cpp">
+    <ClCompile Include="home.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\login.cpp">
+    <ClCompile Include="identify.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\login_f.cpp">
+    <ClCompile Include="login.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\main.cpp">
+    <ClCompile Include="login_f.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\order.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\screen.cpp">
+    <ClCompile Include="order.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\search_fi.cpp">
+    <ClCompile Include="screen.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\sort_byfp.cpp">
+    <ClCompile Include="search_fi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\user_public_fun.cpp">
+    <ClCompile Include="sort_byfp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="user_public_fun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="change_fi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\Ticket.h">
+    <ClInclude Include="Ticket.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\Ticket1.h">
+    <ClInclude Include="Ticket1.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,24 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\add_fi.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\browse_fi.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\create_uif.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\flight_public_fun.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\home.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\identify.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\login.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\login_f.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\main.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\order.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\screen.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\search_fi.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\sort_byfp.cpp" />
-    <ClCompile Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\user_public_fun.cpp" />
+    <ClCompile Include="add_fi.cpp" />
+    <ClCompile Include="browse_fi.cpp" />
+    <ClCompile Include="change_fi.cpp" />
+    <ClCompile Include="create_uif.cpp" />
+    <ClCompile Include="delete_fi.cpp" />
+    <ClCompile Include="flight_public_fun.cpp" />
+    <ClCompile Include="home.cpp" />
+    <ClCompile Include="identify.cpp" />
+    <ClCompile Include="login.cpp" />
+    <ClCompile Include="login_f.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="order.cpp" />
+    <ClCompile Include="screen.cpp" />
+    <ClCompile Include="search_fi.cpp" />
+    <ClCompile Include="sort_byfp.cpp" />
+    <ClCompile Include="user_public_fun.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\Ticket.h" />
-    <ClInclude Include="C:\Users\Administrator\Desktop\TicketManageSystem-master\Proj_Ticket\Ticket1.h" />
+    <ClInclude Include="Ticket.h" />
+    <ClInclude Include="Ticket1.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
