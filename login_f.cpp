@@ -1,6 +1,6 @@
 //管理员登陆机票管理系统
-#include "Ticket.h"
-#include "Ticket1.h"
+#include "Flight.h"
+#include "User.h"
 #include <iostream>
 
 using namespace std;

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -6,13 +7,16 @@
 #include <ctime>
 #include <conio.h>
 #include <windows.h>
-
+#include"UserTicket.h"
 using namespace std;
+
+
+//LoginedUser为登陆的用户
 
 class User
 {
 //public:
-private:
+public:
 	struct UserInfo				//用户信息
 	{
 		char name[32];			//用户姓名
@@ -22,6 +26,9 @@ private:
 		char id[19];			//用户身份证号
 		struct UserInfo *next;	//指向下一个用户信息
 	}*user,*ui,*mi,*mg,*ug;
+	//user为链表哨兵节点 mg用户登陆时输入 ui用来遍历 ug无用处
+
+	class UserTicket* userTicket;		//用户机票
 public:
 	int user_num;				//记录总用户数
 	int mode;					//登陆模式记录
@@ -63,4 +70,7 @@ public:
 //		void save_lfui();		//保存登录系统的用户信息
 //		int load_lfui();		//读取登录系统的用户信息
 		friend class Flight;	
+		friend class UserTicket;
 };
+extern User* LoginedUser;
+//LoginedUser为登陆的用户

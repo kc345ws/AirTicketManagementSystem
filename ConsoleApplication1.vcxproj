@@ -34,11 +34,22 @@
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="search_fi.cpp" />
     <ClCompile Include="sort_byfp.cpp" />
+    <ClCompile Include="userticket_public.cpp" />
     <ClCompile Include="user_public_fun.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ticket.h" />
-    <ClInclude Include="Ticket1.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="Flight.h" />
+    <ClInclude Include="UserTicket.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="flight.txt" />
+    <Text Include="flight_num.txt" />
+    <Text Include="judge.txt" />
+    <Text Include="mode.txt" />
+    <Text Include="order.txt" />
+    <Text Include="user.txt" />
+    <Text Include="user_num.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

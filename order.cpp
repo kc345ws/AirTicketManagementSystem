@@ -1,8 +1,10 @@
-#include "Ticket.h"
-#include "Ticket1.h"
+//订票
+#include "Flight.h"
+#include "User.h"
 #include <iostream>
 
 using namespace std;
+void changechar(char ch[], int changeobjID, UserTicket::Ticket* info);//修改char类型的数据
 
 void Flight::order()		//订票
 {
@@ -40,7 +42,7 @@ void Flight::order()		//订票
 		{
 			if(strcmp(fi->num,fn->num)==0)
 			{
-				if(fn->count<=0)
+				if(fn->count<=0)//输入的定票数小于等于0
 				{
 					cout<<"输入订票数无效!"<<endl;
 					Sleep(1000);
@@ -56,14 +58,45 @@ void Flight::order()		//订票
 					system("cls");
 					cout<<"航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间\t余票数\t票价"<<endl;
 					cout<<fi->data<<" "<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t\t"<<fi->count<<"\t"<<fi->price<<endl;
-					if(fi->count==0)
+					if(fi->count==0)//如果购票后剩余票数为0
 					{
-						fi->prior->next = fi->next;
-						fi->next->prior = fi->prior;
+						fi->prior->next = fi->next;//将该航班的前一个航班的下一个航班设为该航班的下一个航班
+						fi->next->prior = fi->prior;//该航班的下一个航班的前一个航班设为该航班的前一个航班
 						delete fi;
-						--flight_num;
+						--flight_num;//航班总数减1
 						save_fn();
 					}
+
+					//***********************************************
+					//将购票信息添加到用户机票中
+					//LoginedUser->userTicket->next;
+					UserTicket* TempUT;
+					UserTicket::Ticket* TempPorior;
+					TempUT->temp =LoginedUser->userTicket->sentine;
+					while (TempUT->temp->next) {
+						TempUT->temp = TempUT->temp->next;
+					}
+					TempUT->temp->next = new UserTicket::Ticket();
+					TempPorior = TempUT->temp;
+					TempUT->temp = TempUT->temp->next;
+					changechar(fi->data, 1, TempUT->temp);
+					changechar(fi->num, 2, TempUT->temp);
+					changechar(fi->start, 3, TempUT->temp);
+					changechar(fi->end, 4, TempUT->temp);
+					changechar(fi->time, 5, TempUT->temp);
+					changechar(fi->at, 6, TempUT->temp);
+					TempUT->temp->price = fi->price;
+
+					time_t tm;
+					time(&tm);
+					char tmp[128] = { NULL };
+					strcpy(tmp, ctime(&tm));
+					changechar(tmp, 7, TempUT->temp);
+					//未完成***********************************
+
+					TempUT->temp->prior = TempPorior;//设置前继结点
+					TempUT->temp->next = nullptr;
+					//***********************************************
 					break;
 				}
 				else if(fi->count>0 && fi->count<fn->count)
@@ -74,7 +107,7 @@ void Flight::order()		//订票
 					order();
 					break;
 				}
-				else if(fi->count==0)
+				else if(fi->count==0)//要预定航班的剩余票数
 				{
 					cout<<"该航班票已售空!请改换航班订购!"<<endl;
 					Sleep(2000);
@@ -96,5 +129,44 @@ loop2:	Sleep(2000);
 			U_AI.login_mf();
 		else if(U_AI.mode==0)
 			U_AI.login_uf();
+	}
+}
+
+void changechar(char ch[], int changeobjID, UserTicket::Ticket* info) {//修改char类型的数据
+
+	if (changeobjID == 1) {//如果要修改航班日期
+		for (int i = 0; i < strlen(ch); i++) {
+			info->data[i] = ch[i];
+		}
+	}
+	else if (changeobjID == 2) {
+		for (int i = 0; i < strlen(ch); i++) {
+			info->num[i] = ch[i];
+		}
+	}
+	else if (changeobjID == 3) {
+		for (int i = 0; i < strlen(ch); i++) {
+			info->start[i] = ch[i];
+		}
+	}
+	else if (changeobjID == 4) {
+		for (int i = 0; i < strlen(ch); i++) {
+			info->end[i] = ch[i];
+		}
+	}
+	else if (changeobjID == 5) {
+		for (int i = 0; i < strlen(ch); i++) {
+			info->time[i] = ch[i];
+		}
+	}
+	else if (changeobjID == 6) {
+		for (int i = 0; i < strlen(ch); i++) {
+			info->at[i] = ch[i];
+		}
+	}
+	else if (changeobjID == 7) {
+		for (int i = 0; i < strlen(ch); i++) {
+			info->buytime[i] = ch[i];
+		}
 	}
 }

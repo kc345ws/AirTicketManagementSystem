@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -26,43 +27,6 @@ public :
 		struct FlightInfo *next;	//指向下一个航班信息
 		struct FlightInfo *prior;	//指向前一个航班信息
 
-	/*public:
-		void setdata(char chagdata[]) { 
-			for (int i = 0; i < strlen(data); i++) {
-				data[i] = chagdata[i];
-			}
-		};
-		void setnum(char chagnum[]) {
-			for (int i = 0; i < strlen(num); i++) {
-				num[i] = chagnum[i];
-			}
-		};
-		void setstart(char chagstart[]) {
-			for (int i = 0; i < strlen(start); i++) {
-				start[i] = chagstart[i];
-			}
-		};
-		void setend(char chagend[]) {
-			for (int i = 0; i < strlen(end); i++) {
-				end[i] = chagend[i];
-			}
-		};
-		void settime(char chagtime[]) {
-			for (int i = 0; i < strlen(time); i++) {
-				time[i] = chagtime[i];
-			}
-		};
-		void setat(char chagtime[]) {
-			for (int i = 0; i < strlen(at); i++) {
-				at[i] = chagtime[i];
-			}
-		};
-		void setcount(int chagcount) {
-			count = chagcount;
-		};
-		void setprice(double chagprice) {
-			price = chagprice;
-		};*/
 	}*flight,*fi,*fn,*fg;
 //flight初始化哨兵结点 fi从文件读取时创建的 fn输入航班信息时创建的 
 public:	
@@ -100,6 +64,7 @@ public:
 		int load_lfui1();		//读取登录系统的用户信息
 		//	void load_bfi();	//读取二进制形式保存的航班信息文件内容
 		friend class UserInfo;
+		friend class User;
 
 		FlightInfo*getFlightinfo() { return fi; };
 };																			

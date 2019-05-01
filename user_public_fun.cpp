@@ -1,5 +1,5 @@
-#include "Ticket.h"
-#include "Ticket1.h"
+#include "Flight.h"
+#include "User.h"
 #include <iostream>
 
 using namespace std;
@@ -15,6 +15,8 @@ User::User()				//构造函数
 	user_num=0;//用户数量
 	judge=0;//管理员首次登陆
 	mode=-1;//登陆模式
+
+	userTicket = new UserTicket();//创建用户机票
 }
 User::~User()				//析构函数
 {
@@ -71,6 +73,8 @@ void User::input_linfo()	//输入登录信息
 	cin.sync();
 	cout<<"\n请输入用户密码:";
 	cin>>mg->passport;
+
+	LoginedUser->ug = mg;
 //	return mg;
 //	delete mg;
 }

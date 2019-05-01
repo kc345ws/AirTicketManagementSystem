@@ -13,63 +13,101 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\Flight">
+      <UniqueIdentifier>{f60e9445-231b-4f16-a87c-d6d40c2dcb54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\User">
+      <UniqueIdentifier>{ac4c94ca-711b-440d-a65d-b18420566788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UserTicket">
+      <UniqueIdentifier>{9c4c7bfd-b550-4411-baba-24ea0826a6aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="delete_fi.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="add_fi.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="browse_fi.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="create_uif.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="flight_public_fun.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="home.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="identify.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="login.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="login_f.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="order.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="add_fi.cpp">
+      <Filter>源文件\Flight</Filter>
     </ClCompile>
-    <ClCompile Include="screen.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="search_fi.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="sort_byfp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="user_public_fun.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="browse_fi.cpp">
+      <Filter>源文件\Flight</Filter>
     </ClCompile>
     <ClCompile Include="change_fi.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="delete_fi.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="flight_public_fun.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="create_uif.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="home.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="identify.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="login.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="login_f.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="order.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="search_fi.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="sort_byfp.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="user_public_fun.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="userticket_public.cpp">
+      <Filter>源文件\UserTicket</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ticket.h">
+    <ClInclude Include="User.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Ticket1.h">
+    <ClInclude Include="Flight.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UserTicket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="flight.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="flight_num.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="judge.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="mode.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="order.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="user.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="user_num.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

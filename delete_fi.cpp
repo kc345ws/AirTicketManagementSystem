@@ -1,6 +1,6 @@
 //管理员删除航班信息
-#include "Ticket.h"
-#include "Ticket1.h"
+#include "Flight.h"
+#include "User.h"
 #include <iostream>
 
 void Flight::delete_fi() {

@@ -1,6 +1,6 @@
-//Flight类的各种操作
-#include "Ticket.h"
-#include "Ticket1.h"
+//Flight.h类的各种操作
+#include "Flight.h"
+#include "User.h"
 #include <iostream>
 
 using namespace std;
@@ -154,7 +154,7 @@ void Flight::input_sfi(int note,int note1,int note2)	//输入需查找的航班信息
 }
 
 /*
-void Flight::save_fitf(FlightInfo *finfo)				//保存航班信息到文件
+void Flight.h::save_fitf(FlightInfo *finfo)				//保存航班信息到文件
 {
 	if((F_AI.flight_num=F_AI.load_fn())==0)				//判断是否存在航班信息
 	{
@@ -246,7 +246,7 @@ void Flight::Inser_fi()						//把航班信息按日期顺序插入链表
 	}
 }
 /*
-void Flight::Inser_fi()
+void Flight.h::Inser_fi()
 {
 	FlightInfo *curr = flight->next,*curr1 = flight->next->next,*prior;
 	bool success = false;
@@ -353,8 +353,8 @@ int Flight::load_fn()		//读取航班总数
 	return flight_num;
 }
 /*
-void Flight::save_lfui()	//保存登录系统的用户信息
+void Flight.h::save_lfui()	//保存登录系统的用户信息
 {
 	
-int Flight::load_lfui()		//读取登录系统的用户信息
+int Flight.h::load_lfui()		//读取登录系统的用户信息
 */

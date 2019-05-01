@@ -1,6 +1,6 @@
 //打印各种操作界面信息
-#include "Ticket.h"
-#include "Ticket1.h"
+#include "Flight.h"
+#include "User.h"
 #include <iostream>
 
 using namespace std;
