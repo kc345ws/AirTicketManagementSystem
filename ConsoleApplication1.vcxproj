@@ -33,6 +33,7 @@
     <ClCompile Include="order.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="search_fi.cpp" />
+    <ClCompile Include="showTickets.cpp" />
     <ClCompile Include="sort_byfp.cpp" />
     <ClCompile Include="userticket_public.cpp" />
     <ClCompile Include="user_public_fun.cpp" />
@@ -77,7 +78,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>

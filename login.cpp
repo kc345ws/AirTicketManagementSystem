@@ -1,3 +1,4 @@
+//用户和管理员登陆
 #include "Flight.h"
 #include "User.h"
 #include <iostream>
@@ -101,9 +102,13 @@ void User::login_u()		//用户登录
 		ui=user->next;
 		while(ui!=NULL)
 		{
-			if(strcmp(mg->name,ui->name)==0 && strcmp(mg->passport,ui->passport)==0)	//存在该用户的信息时，把success置1
+			if(strcmp(mg->id,ui->id)==0 && strcmp(mg->passport,ui->passport)==0)	//存在该用户的信息时，把success置1
 			{
 				success=1;
+
+				//登陆帐号设置输入的账号
+				LoginedUser->mg = mg;
+				//LoginedUser->mg->userTicket = mg->userTicket;
 				break;
 			}
 			ui=ui->next;

@@ -75,6 +75,9 @@
     <ClCompile Include="userticket_public.cpp">
       <Filter>源文件\UserTicket</Filter>
     </ClCompile>
+    <ClCompile Include="showTickets.cpp">
+      <Filter>源文件\UserTicket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">

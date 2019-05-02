@@ -17,6 +17,7 @@ class User
 {
 //public:
 public:
+	//每一个用户的信息
 	struct UserInfo				//用户信息
 	{
 		char name[32];			//用户姓名
@@ -25,10 +26,12 @@ public:
 		int age;				//用户年龄
 		char id[19];			//用户身份证号
 		struct UserInfo *next;	//指向下一个用户信息
-	}*user,*ui,*mi,*mg,*ug;
-	//user为链表哨兵节点 mg用户登陆时输入 ui用来遍历 ug无用处
 
-	class UserTicket* userTicket;		//用户机票
+		class UserTicket* userTicket;		//用户机票
+	}*user,*ui,*mi,*mg,*ug;
+	//user为链表哨兵节点 mg用户登陆时输入 ui用来遍历和注册时
+
+	//class UserTicket* userTicket;		//用户机票
 public:
 	int user_num;				//记录总用户数
 	int mode;					//登陆模式记录
@@ -71,6 +74,8 @@ public:
 //		int load_lfui();		//读取登录系统的用户信息
 		friend class Flight;	
 		friend class UserTicket;
+
+		
 };
 extern User* LoginedUser;
 //LoginedUser为登陆的用户

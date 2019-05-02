@@ -24,6 +24,8 @@ void Flight::order()		//订票
 	}
 	else					//存在航班信息时，继续进行以下操作
 	{
+		Sleep(2000);
+		browse_fi(false);
 		input_sfi(1,0,0);
 		load_fil();
 		cout<<"航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间\t余票数\t票价"<<endl;
@@ -69,34 +71,9 @@ void Flight::order()		//订票
 
 					//***********************************************
 					//将购票信息添加到用户机票中
-					//LoginedUser->userTicket->next;
-					UserTicket* TempUT;
-					UserTicket::Ticket* TempPorior;
-					TempUT->temp =LoginedUser->userTicket->sentine;
-					while (TempUT->temp->next) {
-						TempUT->temp = TempUT->temp->next;
-					}
-					TempUT->temp->next = new UserTicket::Ticket();
-					TempPorior = TempUT->temp;
-					TempUT->temp = TempUT->temp->next;
-					changechar(fi->data, 1, TempUT->temp);
-					changechar(fi->num, 2, TempUT->temp);
-					changechar(fi->start, 3, TempUT->temp);
-					changechar(fi->end, 4, TempUT->temp);
-					changechar(fi->time, 5, TempUT->temp);
-					changechar(fi->at, 6, TempUT->temp);
-					TempUT->temp->price = fi->price;
+					LoginedUser->mg->userTicket->addTicket(fi,fn->count);
 
-					time_t tm;
-					time(&tm);
-					char tmp[128] = { NULL };
-					strcpy(tmp, ctime(&tm));
-					changechar(tmp, 7, TempUT->temp);
-					//未完成***********************************
-
-					TempUT->temp->prior = TempPorior;//设置前继结点
-					TempUT->temp->next = nullptr;
-					//***********************************************
+					//************************************************/
 					break;
 				}
 				else if(fi->count>0 && fi->count<fn->count)

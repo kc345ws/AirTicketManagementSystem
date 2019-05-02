@@ -1,4 +1,4 @@
-//管理员登陆机票管理系统
+//登陆成功后的操作界面
 #include "Flight.h"
 #include "User.h"
 #include <iostream>
@@ -59,6 +59,8 @@ void User::login_uf()	//用户登陆机票管理系统
 		case '3':F.sort_byfp();
 			break;
 		case '4':F.order();
+			break;
+		case '5':LoginedUser->mg->userTicket->showTickets(false);
 			break;
 		case '0':cout<<"即将退出'机票管理系统',并跳转到主界面..."<<endl;
 			Sleep(1000);

@@ -8,6 +8,7 @@ User::User()				//构造函数
 {
 	user=new UserInfo;
 	user->next=NULL;
+	user->userTicket = new UserTicket();//创建用户机票
 	ui=NULL;
 	mi=NULL;
 	mg=NULL;
@@ -16,7 +17,7 @@ User::User()				//构造函数
 	judge=0;//管理员首次登陆
 	mode=-1;//登陆模式
 
-	userTicket = new UserTicket();//创建用户机票
+	//userTicket = new UserTicket();//创建用户机票
 }
 User::~User()				//析构函数
 {
@@ -64,22 +65,24 @@ char User::choose()			//输入选项
 	return item;
 }
 
-void User::input_linfo()	//输入登录信息
+void User::input_linfo()	//输入登录信息(登陆)
 {
 	mg=new UserInfo;
+	mg->userTicket = new UserTicket();
 	cin.sync();
-	cout<<"\n请输入用户名:";
-	cin>>mg->name;
+	cout<<"\n请输入身份证号:";
+	//cin>>mg->name;
+	cin >> mg->id;
 	cin.sync();
-	cout<<"\n请输入用户密码:";
+	cout<<"\n请输入密码:";
 	cin>>mg->passport;
 
-	LoginedUser->ug = mg;
+	
 //	return mg;
 //	delete mg;
 }
 
-void User::input_uinfo()		//输入用户信息
+void User::input_uinfo()		//输入用户信息(注册)
 {
 	fstream u_file;
 	ui=new UserInfo;
@@ -96,7 +99,7 @@ void User::input_uinfo()		//输入用户信息
 		while(j<user_num)					//判断是否此身份证号已被用于注册过
 		{
 			mg=new UserInfo;
-			u_file>>mg->name>>mg->passport>>mg->sex>>mg->age>>mg->id;
+			u_file>>mg->name>>mg->passport>>mg->sex>>mg->age>>mg->id;//遍历
 			if(strcmp(ui->id,mg->id)==0)
 			{
 				cout<<"\n此身份证号已被使用过!"<<endl;
@@ -121,6 +124,15 @@ void User::input_uinfo()		//输入用户信息
 	cin>>ui->age;
 //	return ui;
 //	delete ui;
+
+	string userid = ui->id;
+	string userdir = "Users\\" + userid;
+	CreateDirectory(userdir.c_str(), NULL);//创建用户机票文件夹
+
+	LoginedUser->ui = ui;
+	LoginedUser->ui ->userTicket->init_ut();//初始化用户机票
+	//newuser.
+
 }
 
 void User::load_list()				//把文件信息装载到链表
