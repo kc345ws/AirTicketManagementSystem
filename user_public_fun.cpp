@@ -4,6 +4,20 @@
 
 using namespace std;
 
+User::UserInfo* User::findUser(string id)
+{
+	load_list();
+	UserInfo* temp = user->next;//哨兵节点
+	while (temp)
+	{
+		if (temp->id == id) {
+			return temp;
+		}
+		temp = temp->next;
+	}
+	return nullptr;
+}
+
 User::User()				//构造函数
 {
 	user=new UserInfo;
@@ -13,6 +27,7 @@ User::User()				//构造函数
 	mi=NULL;
 	mg=NULL;
 	ug=NULL;
+	allus = nullptr;
 	user_num=0;//用户数量
 	judge=0;//管理员首次登陆
 	mode=-1;//登陆模式
@@ -70,7 +85,7 @@ void User::input_linfo()	//输入登录信息(登陆)
 	mg=new UserInfo;
 	mg->userTicket = new UserTicket();
 	cin.sync();
-	cout<<"\n请输入身份证号:";
+	cout<<"\n请输入身份证号(管理员为帐号):";
 	//cin>>mg->name;
 	cin >> mg->id;
 	cin.sync();

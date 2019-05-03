@@ -63,7 +63,7 @@ void User::login_m() 		//¹ÜÀíÔ±µÇÂ½
 		print_item(4);
 		input_linfo();
 	}
-	if(strcmp(mg->name,"admin")==0 && strcmp(mg->passport,"admin")==0)
+	if(strcmp(mg->id,"admin")==0 && strcmp(mg->passport,"admin")==0)
 	{
 		success = 1;
 		++judge;

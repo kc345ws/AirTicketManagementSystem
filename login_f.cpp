@@ -8,6 +8,7 @@ using namespace std;
 void User::login_mf()	//管理员登陆机票管理系统
 {
 	Flight F;
+	User US;
 
 	system("cls");
 	print_item(8);//打印管理员操作界面
@@ -28,6 +29,8 @@ void User::login_mf()	//管理员登陆机票管理系统
 		case '6':F.delete_fi();//删除航班信息
 			break;
 		case '7':F.change_fi();//修改航班信息
+			break;
+		case '8':US.issueDelay_m();//发布航班延误
 			break;
 		case '0':cout<<"即将退出'机票管理系统',并跳转到主界面..."<<endl;
 			Sleep(1000);

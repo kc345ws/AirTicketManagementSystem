@@ -27,6 +27,8 @@
     <ClCompile Include="flight_public_fun.cpp" />
     <ClCompile Include="home.cpp" />
     <ClCompile Include="identify.cpp" />
+    <ClCompile Include="issueCancel_m.cpp" />
+    <ClCompile Include="issueDelay_m.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="login_f.cpp" />
     <ClCompile Include="main.cpp" />
@@ -50,6 +52,8 @@
     <Text Include="mode.txt" />
     <Text Include="order.txt" />
     <Text Include="user.txt" />
+    <Text Include="Users\630121\mytickets.txt" />
+    <Text Include="Users\630121\tickets_num.txt" />
     <Text Include="user_num.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

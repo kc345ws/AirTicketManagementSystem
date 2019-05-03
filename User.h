@@ -25,10 +25,10 @@ public:
 		char sex[6];			//用户性别
 		int age;				//用户年龄
 		char id[19];			//用户身份证号
-		struct UserInfo *next;	//指向下一个用户信息
+		struct UserInfo* next;	//指向下一个用户信息
 
 		class UserTicket* userTicket;		//用户机票
-	}*user,*ui,*mi,*mg,*ug;
+	}*user, * ui, * mi, * mg, * ug, *allus;
 	//user为链表哨兵节点 mg用户登陆时输入 ui用来遍历和注册时
 
 	//class UserTicket* userTicket;		//用户机票
@@ -75,7 +75,9 @@ public:
 		friend class Flight;	
 		friend class UserTicket;
 
-		
+		void issueDelay_m();	//管理员发布航班延误通知
+		void issueCancel_m();	//管理员发布航班取消通知
+		User::UserInfo *findUser(string id);		//查找某个用户
 };
 extern User* LoginedUser;
 //LoginedUser为登陆的用户

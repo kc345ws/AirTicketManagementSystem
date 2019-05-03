@@ -93,6 +93,10 @@ void Flight::input_fi()					//输入航班信息
 	cin.sync();
 	cout<<"\n请输入票价:";
 	cin>>fi->price;
+	cout << "\n请输入中转地:";
+	cin >> fi->transit;
+	cout << "\n请输入中转时间:";
+	cin >> fi->transittime;
 	fi->next = NULL;
 	if((flight_num=load_fn())!=0)
 	{
@@ -180,7 +184,7 @@ void Flight.h::save_fitf(FlightInfo *finfo)				//保存航班信息到文件
 void Flight::Inser_fi()						//把航班信息按日期顺序插入链表
 {
 	FlightInfo *fp,*fpre,*save;
-	fp = flight ->next->next;
+	fp = flight ->next;
 	fpre = flight->next;
 	bool success = false;
 	if((flight_num=load_fn())==0)							//当没有数据结点时，直接插入链表
@@ -289,14 +293,18 @@ void Flight::load_fil()		//把文件中航班信息装载到链表
 	f_file.open("flight.txt",ios::in);
 	if(!f_file)
 	{
-		cerr<<"航班信息读取失败!"<<endl;
+		f_file.close();
+		f_file.open("flight.txt", ios::out);
+		f_file.close();
+		//cerr<<"航班信息读取失败!"<<endl;
+		f_file.open("flight.txt", ios::in);
 		return ;
 	}
 	tail=flight;//赋值哨兵结点
 	while(i<(flight_num = load_fn()))
 	{
 		fi = new FlightInfo;
-		f_file>>fi->data>>fi->num>>fi->start>>fi->end>>fi->time>>fi->at>>fi->count>>fi->price;
+		f_file>>fi->data>>fi->num>>fi->start>>fi->end>>fi->time>>fi->at>>fi->count>>fi->price>>fi->transit>>fi->transittime;
 		fi->next = NULL;
 		tail->next = fi;
 		fi->prior = tail;
@@ -320,7 +328,7 @@ void Flight::save_fil()		//保存链表中航班信息到文件中
 	}
 	while(fi!=NULL)
 	{
-		f_file<<fi->data<<"\t"<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t"<<fi->count<<"\t"<<fi->price<<endl;
+		f_file<<fi->data<<"\t"<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t"<<fi->count<<"\t"<<fi->price<<"\t"<<fi->transit<<"\t"<<fi->transittime<<endl;
 		fi = fi->next;
 	}
 	f_file.close();
@@ -345,7 +353,10 @@ int Flight::load_fn()		//读取航班总数
 	f_file1.open("flight_num.txt",ios::in);
 	if(!f_file1)//如果首次初始化
 	{
-		cerr<<"读取航班总数信息发生错误"<<endl;
+		//cerr<<"读取航班总数信息发生错误"<<endl;
+		f_file1.close();
+		f_file1.open("flight_num.txt", ios::out);
+		f_file1.close();
 		return 0;
 	}
 	f_file1>>flight_num;

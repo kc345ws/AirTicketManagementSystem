@@ -24,6 +24,9 @@ public :
 		char at[6];					//飞行时间
 		int count;					//票数
 		double price;				//票价
+
+		string transit;				//中转地
+		int transittime;			//中转时间
 		struct FlightInfo *next;	//指向下一个航班信息
 		struct FlightInfo *prior;	//指向前一个航班信息
 
