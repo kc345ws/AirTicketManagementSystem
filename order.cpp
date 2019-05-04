@@ -2,6 +2,7 @@
 #include "Flight.h"
 #include "User.h"
 #include <iostream>
+#include<iomanip>
 
 using namespace std;
 void changechar(char ch[], int changeobjID, UserTicket::Ticket* info);//修改char类型的数据
@@ -13,8 +14,8 @@ void Flight::order()		//订票
 	bool exist = false;
 
 	system("cls");
-	U_AI.print_item(14);
-	current_time();
+	//U_AI.print_item(14);
+	//current_time();
 	if((flight_num=load_fn())==0)	//没有航班信息可供预定
 	{
 		cout<<"没有航班信息!无法提供预定服务!"<<endl;
@@ -26,15 +27,22 @@ void Flight::order()		//订票
 	{
 		Sleep(2000);
 		browse_fi(false);
+		U_AI.print_item(14);
+		current_time();
 		input_sfi(1,0,0);
 		load_fil();
-		cout<<"航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间\t余票数\t票价"<<endl;
+		//cout<<"航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间\t余票数\t票价 中转地 中转时间"<<endl;
+		cout << "航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间  余票数  票价  中转地\t中转时间" << endl;
 		for(fi=flight->next;fi!=NULL;fi=fi->next)
 		{
 			if(strcmp(fi->start,fn->start)==0 && strcmp(fi->end,fn->end)==0)
 			{
 				exist = true;
-				cout<<fi->data<<" "<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t\t"<<fi->count<<"\t"<<fi->price<<endl;
+				//cout<<fi->data<<" "<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t\t"<<fi->count<<"\t"<<fi->price<<" "<<fi->transit<<" "<< fi->transittime<<endl;
+				cout.setf(ios::left);
+				cout << setw(8) << fi->data << " " << setw(7) << fi->num << " " << setw(5) << fi->start << "\t" << setw(5) << fi->end << "\t" <<
+					setw(11) << fi->time << "\t" << setw(3) << fi->at << "分钟" << "    " << setw(4) << fi->count << "  " << setw(5) << fi->price << "  "
+					<< setw(5) << fi->transit << "\t" << setw(3) << fi->transittime << "分钟" << endl;
 			}
 		}
 		if(!exist)
@@ -59,15 +67,17 @@ void Flight::order()		//订票
 					Sleep(2000);
 					system("cls");
 					cout<<"航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间\t余票数\t票价"<<endl;
+					
 					cout<<fi->data<<" "<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t\t"<<fi->count<<"\t"<<fi->price<<endl;
-					if(fi->count==0)//如果购票后剩余票数为0
+
+					/*if(fi->count==0)//如果购票后剩余票数为0
 					{
 						fi->prior->next = fi->next;//将该航班的前一个航班的下一个航班设为该航班的下一个航班
 						fi->next->prior = fi->prior;//该航班的下一个航班的前一个航班设为该航班的前一个航班
 						delete fi;
 						--flight_num;//航班总数减1
 						save_fn();
-					}
+					}*/
 
 					//***********************************************
 					//将购票信息添加到用户机票中

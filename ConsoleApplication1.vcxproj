@@ -33,8 +33,11 @@
     <ClCompile Include="login_f.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="order.cpp" />
+    <ClCompile Include="refundTicket_us.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="search_fi.cpp" />
+    <ClCompile Include="showCancel_ut.cpp" />
+    <ClCompile Include="showDelay_ut.cpp" />
     <ClCompile Include="showTickets.cpp" />
     <ClCompile Include="sort_byfp.cpp" />
     <ClCompile Include="userticket_public.cpp" />

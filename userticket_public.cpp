@@ -77,6 +77,7 @@ void UserTicket::addTicket(Flight::FlightInfo* info ,int ticnum) {
 	TempUT->temp->isCancel = false;
 	TempUT->temp->transit = info->transit;
 	TempUT->temp->transittime = info->transittime;//添加中转时间
+	load_num();
 	Ticketnum ++;//更新机票购买次数
 
 	lastticket = TempUT->temp;//设置最后一张机票
@@ -318,6 +319,22 @@ void UserTicket::change_ut(string id, bool info) {
 }
 
 
-void UserTicket::delete_ut() {
-
+bool UserTicket::delete_ut(char del_data[], char del_num[], char del_time[]) {
+	UserTicket::Ticket* tempticket = LoginedUser->mg->userTicket->sentine->next;
+	UserTicket::Ticket* temp = LoginedUser->mg->userTicket->sentine;
+	//LoginedUser->mg->userTicket->load_ut();
+	load_ut();
+	while (tempticket) {
+		if (strcmp(tempticket->data , del_data)==0 && strcmp(tempticket->num ,del_num)==0 && strcmp(tempticket->time , del_time)==0) {
+			temp->next = tempticket->next;
+			tempticket->next->prior = temp;
+			delete tempticket;
+			Ticketnum--;
+			save_ut();
+			return true;
+		}
+		temp = tempticket;
+		tempticket = tempticket->next;
+	}
+	return false;
 }

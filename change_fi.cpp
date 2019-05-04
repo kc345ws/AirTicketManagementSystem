@@ -269,3 +269,34 @@ void changechar(char ch[],int changeobjID, Flight::FlightInfo* info) {//修改char
 		}
 	}
 }
+
+void Flight::change_finum(int num, char data_ch[], char num_ch[], char time_ch[]) {
+	system("cls");
+	load_fil();
+	fi = flight->next;//赋值哨兵结点
+	FlightInfo* tail = flight;//中间变量
+	bool ischange = false;//是否成功修改
+
+	char changedinfo[20];
+	int changedcount;
+	double changeprice;
+	FlightInfo* saveinfo = fi;//用于执行完save_fil()后恢复fi指针
+
+
+	while (fi) {
+
+		if (strcmp(data_ch, fi->data) == 0 && strcmp(num_ch, fi->num) == 0
+			&& strcmp(time_ch, fi->time) == 0) {
+			ischange = true;
+			fi->count += num;//增加用户退票的数量
+			break;
+		}
+		tail = fi;
+		fi = fi->next;
+		saveinfo = fi;
+	}
+
+	if (ischange) {//如果修改成功
+		save_fil();	//把新航班信息链表保存到文件
+	}
+}

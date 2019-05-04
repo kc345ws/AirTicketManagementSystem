@@ -43,7 +43,9 @@ public:
 	void showTickets(bool isback);	//显示购买机票信息
 	void change_ut(bool info);	//更改用户机票延误取消信息
 	void change_ut(string id, bool info);	//更改用户机票信息
-	void delete_ut();				//删除用户机票信息
+	bool delete_ut(char del_data[],char del_num[],char del_time[]);//删除用户机票信息
+	void showDelay_ut();				//显示延误航班机票
+	void showCancel_ut();				//显示取消航班机票
 	friend class Flight;
 	friend class User;
 

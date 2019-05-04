@@ -59,12 +59,14 @@ public:
 		void order();			//订票
 
 		void delete_fi();//删除航班信息
+		void delete_fi(char data_del[], char num_del[], char start_del[], char end_del[]);
 		void change_fi();//修改航班信息
+		void change_finum(int num, char data_ch[], char num_ch[], char time_ch[]);//用户退票时修改机票数量
 
 		void save_fn();			//保存航班总数
 		int load_fn();			//读取航班总数
-		void save_lfui1();		//保存登录系统的用户信息
-		int load_lfui1();		//读取登录系统的用户信息
+		//void save_lfui1();		//保存登录系统的用户信息
+		//int load_lfui1();		//读取登录系统的用户信息
 		//	void load_bfi();	//读取二进制形式保存的航班信息文件内容
 		friend class UserInfo;
 		friend class User;

@@ -91,3 +91,76 @@ void Flight::delete_fi() {
 		}
 	}
 }
+
+void Flight::delete_fi(char data_del[],char num_del[],char start_del[],char end_del[]) {
+	int i = 0;
+	User U_AI;
+
+	system("cls");
+
+	load_fil();				//把文件中航班信息装载到链表
+
+	fi = flight;//赋值哨兵结点
+	FlightInfo* tail = flight;//中间变量
+	//fstream f_file;
+	bool isdel = false;//是否成功删除
+	/*f_file.open("flight.txt", ios::in);
+	if (!f_file) {
+		cout << "读取航班信息失败" << endl;
+		return;
+	}*/
+	while (fi) {
+		//f_file >> fi->data >> fi->num >> fi->start >> fi->end >> fi->time >> fi->at >> fi->count >> fi->price;
+
+		if (strcmp(data_del, fi->data) == 0 && strcmp(num_del, fi->num) == 0
+			&& strcmp(start_del, fi->start) == 0 && strcmp(end_del, fi->end) == 0) {
+
+			tail->next = fi->next;
+			delete fi;
+			cout << "删除成功" << endl;
+			isdel = true;
+			break;
+		}
+		tail = fi;
+		fi = fi->next;
+		i++;
+	}
+
+	//f_file.close();
+
+	if (isdel) {//如果删除成功
+		save_fil();				//把新航班信息链表保存到文件
+
+		--flight_num;			//航班数减1
+		save_fn();				//保存航班总数
+
+		/*cout << "\n正在进行航班信息删除..." << endl;
+		Sleep(2000);
+		system("cls");
+		cout << "航班信息删除成功!" << endl;
+		cout << "即将跳转至信息管理系统主页..." << endl;
+		Sleep(2000);
+		system("cls");
+		U_AI.login_mf();*/
+	}
+	/*else {
+		cout << "没有查询到相应航班删除失败，是否继续删除?(y/n)" << endl;
+		char choice;
+		cin >> choice;
+		switch (choice)
+		{
+		case 'y':
+			delete_fi();
+			cout << "即将重新开始删除..." << endl;
+			Sleep(2000);
+			system("cls");
+			break;
+		default:
+			cout << "即将跳转至信息管理系统主页..." << endl;
+			Sleep(2000);
+			system("cls");
+			U_AI.login_mf();
+			break;
+		}
+	}*/
+}

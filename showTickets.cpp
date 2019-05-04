@@ -21,7 +21,7 @@ void UserTicket::showTickets(bool isback) {
 			cout.setf(ios::left);
 			cout << setw(8) << temp->data << " " << setw(7) <<temp->num << " " << setw(5) <<temp->start << "\t" << setw(5) <<temp->end << "\t" 
 				<<setw(11) << temp->time << "\t" <<setw(3) << temp->at << "分钟"<< "  "<<setw(5)<<temp->price << "  " << temp->Ticketcount << "\t"
-				<< setw(12) <<temp->buytime<<"  ";
+				<< setw(17) <<temp->buytime<<"  ";
 
 			/*cout.setf(ios::left);
 			cout << setw(8) << fi->data << " " << setw(7) << fi->num << " " << setw(5) << fi->start << "\t" << setw(5) << fi->end << "\t" <<
@@ -41,7 +41,7 @@ void UserTicket::showTickets(bool isback) {
 			}
 			if(temp->transit=="无") {//如果没有中转
 				cout.setf(ios::left);
-				cout << setw(8) << "无" << setw(5) <<"无"<<endl;
+				cout << setw(10) << "无" << setw(8) <<"无"<<endl;
 			}
 			else {
 				cout.setf(ios::left);
@@ -50,8 +50,10 @@ void UserTicket::showTickets(bool isback) {
 			temp = temp->next;
 		}
 	}
-	cout << "按任意键返回主界面" << endl;
-	getchar();
-	getchar();
-	ui.login_uf();
+	if (isback) {
+		cout << "按任意键返回主界面" << endl;
+		getchar();
+		getchar();
+		ui.login_uf();
+	}
 }

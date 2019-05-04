@@ -15,6 +15,7 @@ void Flight::search_fi()	//按航班号查找航班信息
 	char str1[5];
 
 	system("cls");
+	browse_fi(false);
 	U_AI.print_item(12);
 	if((flight_num=load_fn())==0)
 	{

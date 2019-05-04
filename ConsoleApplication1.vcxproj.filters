@@ -84,6 +84,15 @@
     <ClCompile Include="issueCancel_m.cpp">
       <Filter>源文件\User</Filter>
     </ClCompile>
+    <ClCompile Include="showDelay_ut.cpp">
+      <Filter>源文件\UserTicket</Filter>
+    </ClCompile>
+    <ClCompile Include="showCancel_ut.cpp">
+      <Filter>源文件\UserTicket</Filter>
+    </ClCompile>
+    <ClCompile Include="refundTicket_us.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
