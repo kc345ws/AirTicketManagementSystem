@@ -36,7 +36,7 @@ void UserTicket :: Destroy() {
 	delete T1;
 }
 
-void UserTicket::addTicket(Flight::FlightInfo* info ,int ticnum) {
+void UserTicket::addTicket(Flight::FlightInfo* info ,int ticnum) {//ticnum为机票购买数量
 	//***********************************************
 					//将购票信息添加到用户机票中
 					//LoginedUser->userTicket->next;
@@ -254,6 +254,31 @@ void UserTicket::save_ut(string tempid) {
 
 }
 
+void UserTicket::saveall_ut() {
+	string userid = LoginedUser->mg->id;
+	string filename = "Users\\" + userid + "\\mytickets.txt";
+	fstream myticketsfile;
+
+	myticketsfile.open(filename, ios::out);
+
+	//UserTicket::Ticket* tempticket = LoginedUser->mg->userTicket->lastticket;
+	UserTicket::Ticket* tempticket = LoginedUser->mg->userTicket->sentine->next;
+	while (tempticket) {
+		myticketsfile << tempticket->data << "\t" << tempticket->num << "\t" << tempticket->start << "\t" << tempticket->end << "\t"
+			<< tempticket->time << "\t" << tempticket->at << "\t" << tempticket->price << "\t" << tempticket->Ticketcount << "\t" <<
+			tempticket->buytime << "\t" << tempticket->isDelay << "\t" << tempticket->isCancel << "\t" << tempticket->transit <<
+			"\t" << tempticket->transittime << endl;
+		tempticket = tempticket->next;
+	}
+	myticketsfile.close();
+
+	//更新机票购买次数
+	filename = "Users\\" + userid + "\\tickets_num.txt";
+	myticketsfile.open(filename, ios::out);
+	myticketsfile << Ticketnum;//创建用户机票总数
+	myticketsfile.close();
+}
+
 void UserTicket::change_ut(bool info) {
 	/*string userid = LoginedUser->mg->id;
 	string filename = "Users\\" + userid + "\\mytickets.txt";
@@ -330,7 +355,7 @@ bool UserTicket::delete_ut(char del_data[], char del_num[], char del_time[]) {
 			tempticket->next->prior = temp;
 			delete tempticket;
 			Ticketnum--;
-			save_ut();
+			saveall_ut();
 			return true;
 		}
 		temp = tempticket;

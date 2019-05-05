@@ -1,4 +1,9 @@
 #pragma once
+#ifndef FLIGHT
+#define FLIGHT
+
+
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -8,6 +13,7 @@
 #include <conio.h>
 #include <windows.h>
 
+#include"User.h"
 using namespace std;
 
 class Flight
@@ -34,8 +40,12 @@ public :
 //flight初始化哨兵结点 fi从文件读取时创建的 fn输入航班信息时创建的 
 public:	
 	int flight_num;					//所有航班数
+	User::UserInfo* waituser;		//抢票的用户队列
+	int wait_num;					//该航班抢票用户数量
+	//int* grabnum;					//抢票数量
 
 	public:
+		friend class UserTicket;
 		Flight();
 		~Flight();
 		void destroy(FlightInfo *&F);					//释放链表
@@ -68,8 +78,14 @@ public:
 		//void save_lfui1();		//保存登录系统的用户信息
 		//int load_lfui1();		//读取登录系统的用户信息
 		//	void load_bfi();	//读取二进制形式保存的航班信息文件内容
-		friend class UserInfo;
-		friend class User;
+
 
 		FlightInfo*getFlightinfo() { return fi; };
-};																			
+		void showzeroTicket_fl();				//显示已经售罄的航班信息信息
+		void loadall_wait(string filename);			//读取某个航班的抢票队列信息
+		void saveall_wait(string filename);			//保存某个航班的抢票队列信息
+		void load_waitnum(string filename);			//加载等待抢票的用户数量
+		void save_waitnum(string filename);			//保存等待抢票的用户数量
+};
+#endif // !1
+extern Flight* FLIGHT_WAIT;

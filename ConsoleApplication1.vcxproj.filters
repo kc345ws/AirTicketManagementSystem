@@ -93,6 +93,18 @@
     <ClCompile Include="refundTicket_us.cpp">
       <Filter>源文件\User</Filter>
     </ClCompile>
+    <ClCompile Include="showzeroTicket_fl.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
+    <ClCompile Include="grabbingTicket_us.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="responseRefund_us.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="orderwait.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">

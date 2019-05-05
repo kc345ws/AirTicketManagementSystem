@@ -1,4 +1,9 @@
 #pragma once
+#ifndef USER
+#define USER
+
+
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -7,7 +12,7 @@
 #include <ctime>
 #include <conio.h>
 #include <windows.h>
-#include"UserTicket.h"
+
 using namespace std;
 
 
@@ -29,7 +34,7 @@ public:
 
 		class UserTicket* userTicket;		//用户机票
 	}*user, * ui, * mi, * mg, * ug, *allus;
-	//user为链表哨兵节点 mg用户登陆时输入 ui用来遍历和注册时
+	//user为链表哨兵节点 mg用户登陆时输入 ui用来遍历和注册时 waituser等待抢票用户
 
 	//class UserTicket* userTicket;		//用户机票
 public:
@@ -72,13 +77,15 @@ public:
 		int load_judge();		//读取登陆次数
 //		void save_lfui();		//保存登录系统的用户信息
 //		int load_lfui();		//读取登录系统的用户信息
-		friend class Flight;	
-		friend class UserTicket;
+
 
 		void issueDelay_m();	//管理员发布航班延误通知
 		void issueCancel_m();	//管理员发布航班取消通知
 		User::UserInfo *findUser(string id);		//查找某个用户
 		void refundTicket_us();	//用户退票
+		void grabbingTicket_us();	//用户抢票
+		void responseRefund_us(string grab_data,string grab_num,string grab_time);	//当有用户退票成功时响应用户抢票
 };
+#endif // !USER
 extern User* LoginedUser;
 //LoginedUser为登陆的用户

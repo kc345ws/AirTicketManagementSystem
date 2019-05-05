@@ -1,6 +1,7 @@
 //登陆成功后的操作界面
 #include "Flight.h"
 #include "User.h"
+#include"UserTicket.h"
 #include <iostream>
 
 using namespace std;

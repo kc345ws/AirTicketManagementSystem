@@ -1,4 +1,7 @@
 #include"User.h"
+#include"Flight.h"
+#include"User.h"
+#include"UserTicket.h"
 #include<iostream>
 
 //管理员发布航班取消通知

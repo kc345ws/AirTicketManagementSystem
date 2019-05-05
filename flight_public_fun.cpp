@@ -15,11 +15,16 @@ Flight::Flight()
 	fn=NULL;
 	fg=NULL;
 	flight_num=load_fn();//读取航班总数
+
+	waituser = new User::UserInfo();
+	wait_num = 0;
+	//grabnum = new int;
 }
 
 Flight::~Flight()
 {
 	destroy(flight);
+	//delete waituser;
 }
 
 void Flight::destroy(FlightInfo *&F)	//释放链表

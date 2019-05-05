@@ -25,6 +25,7 @@
     <ClCompile Include="create_uif.cpp" />
     <ClCompile Include="delete_fi.cpp" />
     <ClCompile Include="flight_public_fun.cpp" />
+    <ClCompile Include="grabbingTicket_us.cpp" />
     <ClCompile Include="home.cpp" />
     <ClCompile Include="identify.cpp" />
     <ClCompile Include="issueCancel_m.cpp" />
@@ -33,12 +34,15 @@
     <ClCompile Include="login_f.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="order.cpp" />
+    <ClCompile Include="orderwait.cpp" />
     <ClCompile Include="refundTicket_us.cpp" />
+    <ClCompile Include="responseRefund_us.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="search_fi.cpp" />
     <ClCompile Include="showCancel_ut.cpp" />
     <ClCompile Include="showDelay_ut.cpp" />
     <ClCompile Include="showTickets.cpp" />
+    <ClCompile Include="showzeroTicket_fl.cpp" />
     <ClCompile Include="sort_byfp.cpp" />
     <ClCompile Include="userticket_public.cpp" />
     <ClCompile Include="user_public_fun.cpp" />

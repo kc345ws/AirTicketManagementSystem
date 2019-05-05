@@ -1,7 +1,7 @@
 #include"User.h"
 #include"UserTicket.h"
 #include"Flight.h"
-
+extern Flight* FLIGHT_WAIT;
 //用户退票
 void User::refundTicket_us() {
 	User UI;
@@ -27,6 +27,7 @@ void User::refundTicket_us() {
 			F.change_finum(tempticket->Ticketcount, tempticket->data, tempticket->num, tempticket->time);//更改航班剩余机票数量
 			LoginedUser->mg->userTicket->delete_ut(tempticket->data, tempticket->num, tempticket->time);//从用户机票信息删除该机票
 			isfound = true;
+			responseRefund_us(tempticket->data, tempticket->num, tempticket->time);//当有用户退票成功时,响应用户抢票请求
 			break;
 		}
 		tempticket = tempticket->next;

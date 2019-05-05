@@ -1,5 +1,6 @@
 #include "Flight.h"
 #include "User.h"
+#include"UserTicket.h"
 #include <iostream>
 
 using namespace std;
@@ -32,6 +33,7 @@ User::User()				//构造函数
 	judge=0;//管理员首次登陆
 	mode=-1;//登陆模式
 
+	//waituesr = new UserInfo();
 	//userTicket = new UserTicket();//创建用户机票
 }
 User::~User()				//析构函数

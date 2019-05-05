@@ -1,6 +1,7 @@
 //订票
 #include "Flight.h"
 #include "User.h"
+#include"UserTicket.h"
 #include <iostream>
 #include<iomanip>
 
@@ -14,6 +15,7 @@ void Flight::order()		//订票
 	bool exist = false;
 
 	system("cls");
+	string choice;
 	//U_AI.print_item(14);
 	//current_time();
 	if((flight_num=load_fn())==0)	//没有航班信息可供预定
@@ -55,8 +57,14 @@ void Flight::order()		//订票
 				if(fn->count<=0)//输入的定票数小于等于0
 				{
 					cout<<"输入订票数无效!"<<endl;
-					Sleep(1000);
-					order();
+					cout << "是否继续订票(y/n)?" << endl;
+					cin >> choice;
+					if (choice == "y" || choice == "Y") {
+						order();
+					}
+					else {
+						U_AI.login_uf();
+					}
 					break;
 				}
 				else if(fi->count>=fn->count)
@@ -90,15 +98,27 @@ void Flight::order()		//订票
 				{
 					cout<<"余票不足!无法完成订票!"<<endl;
 					cout<<"请重新订票!"<<endl;
-					Sleep(2000);
-					order();
+					cout << "是否继续订票(y/n)?" << endl;
+					cin >> choice;
+					if (choice == "y" || choice == "Y") {
+						order();
+					}
+					else {
+						U_AI.login_uf();
+					}
 					break;
 				}
 				else if(fi->count==0)//要预定航班的剩余票数
 				{
 					cout<<"该航班票已售空!请改换航班订购!"<<endl;
-					Sleep(2000);
-					order();
+					cout << "是否继续订票(y/n)?" << endl;
+					cin >> choice;
+					if (choice == "y" || choice == "Y") {
+						order();
+					}
+					else {
+						U_AI.login_uf();
+					}
 					break;
 				}
 			}
@@ -107,8 +127,14 @@ Nofind:	if(success==0)
 		{
 			system("cls");
 			cout<<"没有航班信息或已售空!"<<endl;
-			Sleep(2000);
-			order();
+			cout << "是否继续订票(y/n)?" << endl;
+			cin >> choice;
+			if (choice == "y" || choice == "Y") {
+				order();
+			}
+			else {
+				U_AI.login_uf();
+			}
 		}
 		save_fil();
 loop2:	Sleep(2000);
