@@ -51,6 +51,7 @@ void User::login_mf()	//管理员登陆机票管理系统
 void User::login_uf()	//用户登陆机票管理系统
 {
 	Flight F;
+	//User* temp = new User();
 
 	system("cls");
 	print_item(9);
@@ -73,6 +74,10 @@ void User::login_uf()	//用户登陆机票管理系统
 		case '7':LoginedUser->mg->userTicket->showCancel_ut();
 			break;
 		case '8':refundTicket_us();//退票
+			//temp->refundTicket_us();
+			break;
+		case '9':grabbingTicket_us();//抢票
+			//temp->grabbingTicket_us();
 			break;
 		case '0':cout<<"即将退出'机票管理系统',并跳转到主界面..."<<endl;
 			Sleep(1000);

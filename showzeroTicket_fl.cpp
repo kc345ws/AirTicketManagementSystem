@@ -26,8 +26,8 @@ void Flight::showzeroTicket_fl() {
 				cout << setw(8) << fi->data << " " << setw(7) << fi->num << " " << setw(5) << fi->start << "\t" << setw(5) << fi->end << "\t" <<
 					setw(11) << fi->time << "\t" << setw(3) << fi->at << "·ÖÖÓ" << "    " << setw(4) << fi->count << "  " << setw(5) << fi->price << "  "
 					<< setw(5) << fi->transit << "\t" << setw(3) << fi->transittime << "·ÖÖÓ" << endl;
-				fi = fi->next;
 			}
+			fi = fi->next;
 		}
 	}
 }

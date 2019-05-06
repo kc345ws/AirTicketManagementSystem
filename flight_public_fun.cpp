@@ -16,8 +16,10 @@ Flight::Flight()
 	fg=NULL;
 	flight_num=load_fn();//¶ÁÈ¡º½°à×ÜÊý
 
-	waituser = new User::UserInfo();
+	//waituser = new User::UserInfo();
+	waitUS = new WaitUsers();
 	wait_num = 0;
+	//first_count = 0;
 	//grabnum = new int;
 }
 

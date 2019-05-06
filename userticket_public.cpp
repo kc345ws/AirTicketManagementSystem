@@ -345,14 +345,16 @@ void UserTicket::change_ut(string id, bool info) {
 
 
 bool UserTicket::delete_ut(char del_data[], char del_num[], char del_time[]) {
+	load_ut();
 	UserTicket::Ticket* tempticket = LoginedUser->mg->userTicket->sentine->next;
 	UserTicket::Ticket* temp = LoginedUser->mg->userTicket->sentine;
 	//LoginedUser->mg->userTicket->load_ut();
-	load_ut();
 	while (tempticket) {
 		if (strcmp(tempticket->data , del_data)==0 && strcmp(tempticket->num ,del_num)==0 && strcmp(tempticket->time , del_time)==0) {
 			temp->next = tempticket->next;
-			tempticket->next->prior = temp;
+			if (tempticket->next) {
+				tempticket->next->prior = temp;
+			}
 			delete tempticket;
 			Ticketnum--;
 			saveall_ut();

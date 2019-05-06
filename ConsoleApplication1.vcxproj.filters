@@ -105,6 +105,9 @@
     <ClCompile Include="orderwait.cpp">
       <Filter>源文件\Flight</Filter>
     </ClCompile>
+    <ClCompile Include="getrefund_fi.cpp">
+      <Filter>源文件\Flight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">

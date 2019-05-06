@@ -37,11 +37,19 @@ public :
 		struct FlightInfo *prior;	//指向前一个航班信息
 
 	}*flight,*fi,*fn,*fg;
+
+	struct WaitUsers {
+		int id;
+		int count;
+		WaitUsers* next;
+	};
 //flight初始化哨兵结点 fi从文件读取时创建的 fn输入航班信息时创建的 
 public:	
 	int flight_num;					//所有航班数
-	User::UserInfo* waituser;		//抢票的用户队列
+	//User::UserInfo* waituser;		//抢票的用户队列
+	WaitUsers* waitUS;				//抢票的用户队列
 	int wait_num;					//该航班抢票用户数量
+	//int first_count;				//第一个用户抢票的数量
 	//int* grabnum;					//抢票数量
 
 	public:
@@ -66,6 +74,7 @@ public:
 		//	bool load_fi();		//读取航班信息
 		void sort_byfp();		//全部航班按票价降序显示
 		void search_fi();		//按航班号查找航班信息
+		FlightInfo *getrefund_fi(string data_re,string num_re, string time_re);	//获得退票航班信息
 		void order();			//订票
 
 		void delete_fi();//删除航班信息

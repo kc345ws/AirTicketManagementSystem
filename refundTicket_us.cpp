@@ -10,7 +10,7 @@ void User::refundTicket_us() {
 	string refundnum;//要退票的航班航班号
 	string refundtime;//要退票的航班起降时间
 	LoginedUser->mg->userTicket->load_ut();//加载用户机票信息
-	LoginedUser->mg->userTicket->showTickets(false);//显示用户已购买机票
+	//LoginedUser->mg->userTicket->showTickets(false);//显示用户已购买机票
 	UserTicket::Ticket* tempticket = LoginedUser->mg->userTicket->sentine->next;
 	bool isfound = false;
 	system("cls");
@@ -27,7 +27,10 @@ void User::refundTicket_us() {
 			F.change_finum(tempticket->Ticketcount, tempticket->data, tempticket->num, tempticket->time);//更改航班剩余机票数量
 			LoginedUser->mg->userTicket->delete_ut(tempticket->data, tempticket->num, tempticket->time);//从用户机票信息删除该机票
 			isfound = true;
-			responseRefund_us(tempticket->data, tempticket->num, tempticket->time);//当有用户退票成功时,响应用户抢票请求
+
+			
+			responseRefund_us(tempticket->data, tempticket->num, refundtime);//当有用户退票成功时,响应用户抢票请求
+
 			break;
 		}
 		tempticket = tempticket->next;

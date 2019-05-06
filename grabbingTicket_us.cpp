@@ -3,6 +3,7 @@
 #include"UserTicket.h"
 #include<iostream>
 #include<iomanip>
+#include<vector>
 extern Flight* FLIGHT_WAIT;
 void User::grabbingTicket_us() {//用户抢票
 	User UI;
@@ -28,11 +29,26 @@ void User::grabbingTicket_us() {//用户抢票
 		if (tempinfo->data == grab_data && tempinfo->num == grab_num && tempinfo->time == grab_time &&tempinfo->count==0) {
 			cout << "请输入抢票数量" << endl;
 			cin >> grab_count;
+			//string filename = "Users\\" + id + "\\mytickets.txt";
+			
+			string::iterator it = grab_time.begin();
+			for (it; it != grab_time.end(); it++) {
+				if (*it == ':') {
+					grab_time.erase(it);
+				}
+			}
 			fstream flightwait;//向抢票等待队列写入信息
 			string userid = LoginedUser->mg->id;
-			string filename = "FlightWaitOrder\\" + grab_data + "-" + grab_num + "-" + grab_time + ".txt";
-			string filenumname = "FlightWaitOrder\\" + grab_data + "-" + grab_num + "-" + grab_time + "_num.txt";
+			string filename = "FlightWaitOrder\\" + grab_data + "_" + grab_num + "_" + grab_time + ".txt";
+			string filenumname = "FlightWaitOrder\\" + grab_data + "_" + grab_num + "_" + grab_time + "_num.txt";
 			flightwait.open(filename, ios::app);//追加写入
+			//flightwait.open(filename, ios::out);
+			if (!flightwait) {
+				flightwait.close();
+				flightwait.open(filename, ios::out);
+				flightwait.close();
+				flightwait.open(filename, ios::app);
+			}
 			flightwait << LoginedUser->mg->id << " " << grab_count << endl;//写入用户的身份证号和数量
 			flightwait.close();
 			isfound = true;
