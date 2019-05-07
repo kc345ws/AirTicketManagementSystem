@@ -49,6 +49,16 @@ void User::issueDelay_m() {
 					isfound = true;
 					tempticket->isDelay = true;
 					issucced = true;
+
+					F.fi = F.flight->next;
+					while (F.fi) {
+						if (F.fi->data == flightdata && F.fi->num == flightnum && F.fi->time == flighttime) {
+							break;
+						}
+						F.fi = F.fi->next;
+					}
+					F.fi->isDelay = true;
+					F.save_fil();
 					break;
 				}
 				tempticket = tempticket->next;

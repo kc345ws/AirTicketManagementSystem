@@ -294,32 +294,33 @@ void Flight.h::Inser_fi()
 
 void Flight::load_fil()		//把文件中航班信息装载到链表
 {
-	int i=0;
+	int i = 0;
 	fstream f_file;//打开fight.txt文件
-	FlightInfo *tail;
-	f_file.open("flight.txt",ios::in);
-	if(!f_file)
+	FlightInfo* tail;
+	f_file.open("flight.txt", ios::in);
+	if (!f_file)
 	{
 		f_file.close();
 		f_file.open("flight.txt", ios::out);
 		f_file.close();
 		//cerr<<"航班信息读取失败!"<<endl;
 		f_file.open("flight.txt", ios::in);
-		return ;
+		return;
 	}
-	tail=flight;//赋值哨兵结点
-	while(i<(flight_num = load_fn()))
-	{
-		fi = new FlightInfo;
-		f_file>>fi->data>>fi->num>>fi->start>>fi->end>>fi->time>>fi->at>>fi->count>>fi->price>>fi->transit>>fi->transittime;
-		fi->next = NULL;
-		tail->next = fi;
-		fi->prior = tail;
-		tail = fi;
-		i++;
-	}
-	tail->next = NULL;
-	f_file.close();
+		tail = flight;//赋值哨兵结点     
+		while (i < (flight_num = load_fn()))
+		{
+			fi = new FlightInfo;
+			f_file >> fi->data >> fi->num >> fi->start >> fi->end >> fi->time >> fi->at >> fi->count >> fi->price >> fi->transit >> fi->transittime >> fi->isDelay;
+			fi->next = NULL;
+			tail->next = fi;
+			fi->prior = tail;
+			tail = fi;
+			i++;
+		}
+		tail->next = NULL;
+		f_file.close();
+	
 }
 
 void Flight::save_fil()		//保存链表中航班信息到文件中
@@ -335,7 +336,7 @@ void Flight::save_fil()		//保存链表中航班信息到文件中
 	}
 	while(fi!=NULL)
 	{
-		f_file<<fi->data<<"\t"<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t"<<fi->count<<"\t"<<fi->price<<"\t"<<fi->transit<<"\t"<<fi->transittime<<endl;
+		f_file<<fi->data<<"\t"<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t"<<fi->count<<"\t"<<fi->price<<"\t"<<fi->transit<<"\t"<<fi->transittime<<" "<<fi->isDelay<<endl;
 		fi = fi->next;
 	}
 	f_file.close();

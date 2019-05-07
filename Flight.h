@@ -36,6 +36,8 @@ public :
 		struct FlightInfo *next;	//指向下一个航班信息
 		struct FlightInfo *prior;	//指向前一个航班信息
 
+		bool isDelay = false;				//是否延误
+
 	}*flight,*fi,*fn,*fg;
 
 	struct WaitUsers {

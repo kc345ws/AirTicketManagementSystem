@@ -27,8 +27,9 @@ void User::grabbingTicket_us() {//用户抢票
 
 	while (tempinfo) {
 		if (tempinfo->data == grab_data && tempinfo->num == grab_num && tempinfo->time == grab_time &&tempinfo->count==0) {
-			cout << "请输入抢票数量" << endl;
-			cin >> grab_count;
+			//cout << "请输入抢票数量" << endl;
+			//cin >> grab_count;
+			grab_count = 1;//一次只能抢一张票
 			//string filename = "Users\\" + id + "\\mytickets.txt";
 			
 			string::iterator it = grab_time.begin();

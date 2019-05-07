@@ -87,4 +87,25 @@ void User::responseRefund_us(string grab_data, string grab_num, string grab_time
 	userflightnumfile.close();
 
 	//更新航班票数
+	char grab_data_ch[20];
+	char grab_num_ch[20];
+	char grab_time_ch[20];
+
+	for (int i = 0; i < grab_data.length(); i++) {
+		grab_data_ch[i] = grab_data[i];
+	}
+	grab_data_ch[grab_data.length()] = '\0';//必须手动赋值结束字符
+
+	for (int i = 0; i < grab_num.length(); i++) {
+		grab_num_ch[i] = grab_num[i];
+	}
+	grab_num_ch[grab_num.length()] = '\0';
+
+	for (int i = 0; i < grab_time.length(); i++) {
+		grab_time_ch[i] = grab_time[i];
+	}
+	grab_time_ch[grab_time.length()] = '\0';
+
+	F.change_finum(-1, grab_data_ch, grab_num_ch, grab_time_ch);
+	F.save_fil();
 }
