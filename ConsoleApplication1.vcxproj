@@ -36,6 +36,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="order.cpp" />
     <ClCompile Include="orderwait.cpp" />
+    <ClCompile Include="RecommendFlight.cpp" />
     <ClCompile Include="refundTicket_us.cpp" />
     <ClCompile Include="responseRefund_us.cpp" />
     <ClCompile Include="screen.cpp" />

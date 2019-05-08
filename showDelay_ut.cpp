@@ -10,7 +10,7 @@ void UserTicket::showDelay_ut() {
 	UserTicket::Ticket *tempticket = LoginedUser->mg->userTicket->sentine->next;
 	bool isfound = false;
 	cout << "航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间  票价\t数量\t购买时间\t 延误 取消 中转地 中转时间" << endl;
-	while (tempticket->next) {
+	while (tempticket) {
 		if (tempticket->isDelay) {
 			isfound = true;
 			cout.setf(ios::left);
@@ -42,6 +42,8 @@ void UserTicket::showDelay_ut() {
 		}
 		tempticket = tempticket->next;
 	}
+	cout << endl;
+	UI.RecommendFlight();
 
 	if (!isfound) {
 		cout << "没有任何发生航班延误的机票" << endl;

@@ -81,6 +81,7 @@ public:
 
 		void issueDelay_m();	//管理员发布航班延误通知
 		void issueCancel_m();	//管理员发布航班取消通知
+		void RecommendFlight();//航班延误后推荐
 		User::UserInfo *findUser(string id);		//查找某个用户
 		void refundTicket_us();	//用户退票
 		void grabbingTicket_us();	//用户抢票

@@ -73,7 +73,8 @@ void UserTicket::addTicket(Flight::FlightInfo* info ,int ticnum) {//ticnum为机票
 		TempUT->temp->buytime[i] = currenttime[i];
 	}
 	
-	TempUT->temp->isDelay = false;
+	//TempUT->temp->isDelay = false;
+	TempUT->temp->isDelay = info->isDelay;
 	TempUT->temp->isCancel = false;
 	TempUT->temp->transit = info->transit;
 	TempUT->temp->transittime = info->transittime;//添加中转时间

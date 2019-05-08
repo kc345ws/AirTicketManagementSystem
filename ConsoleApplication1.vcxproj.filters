@@ -108,6 +108,9 @@
     <ClCompile Include="getrefund_fi.cpp">
       <Filter>源文件\Flight</Filter>
     </ClCompile>
+    <ClCompile Include="RecommendFlight.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
