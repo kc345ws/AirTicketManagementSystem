@@ -129,6 +129,7 @@ void User::print_item(int k)				//打印操作标题
 		cout<<"#             7>查看取消机票                 #"<<endl;
 		cout<<"#             8>退票                         #"<<endl;
 		cout<<"#             9>抢票                         #"<<endl;
+		cout<<"#             Q>按条件浏览航班信息           #"<<endl;
 		cout<<"#             0>退出                         #"<<endl;
 		cout<<"#============================================#"<<endl;
 	}

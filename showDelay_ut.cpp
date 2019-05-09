@@ -43,10 +43,13 @@ void UserTicket::showDelay_ut() {
 		tempticket = tempticket->next;
 	}
 	cout << endl;
-	UI.RecommendFlight();
+	//UI.RecommendFlight();
 
 	if (!isfound) {
 		cout << "没有任何发生航班延误的机票" << endl;
+	}
+	else {
+		UI.RecommendFlight();
 	}
 	cout << "按任意键返回主界面" << endl;
 	getchar();

@@ -72,6 +72,15 @@ public:
 		void add_fi();			//添加航班信息
 		//void browse_fi(); 		//浏览航班信息
 		void browse_fi(bool isback); 		//浏览航班信息
+		void browse_fi_priceLTH();//按机票从低到高排序
+		void browse_fi_atLTH();//飞行时间升序
+		void browse_fi_atHTL();//飞行时间降序
+		void browse_fi_countLTH();//剩余票数升序
+		void browse_fi_countHTL();//剩余票数降序
+		void browse_fi_transtimeLTH();//中转时间升序
+		void browse_fi_transtimeHTL();//中转时间降序
+		void browse_fi_dateLTH();//日期升序
+		void browse_fi_dateHTL();//日期降序
 		//	void save_fi();		//保护航班信息,防止信息丢失
 		//	bool load_fi();		//读取航班信息
 		void sort_byfp();		//全部航班按票价降序显示

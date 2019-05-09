@@ -4,6 +4,7 @@
 
 void UserTicket::showCancel_ut() {
 	User UI;
+	
 	system("CLS");
 	UI.print_item(22);
 	LoginedUser->mg->userTicket->load_ut();
@@ -42,9 +43,13 @@ void UserTicket::showCancel_ut() {
 		}
 		tempticket = tempticket->next;
 	}
-
+	cout << endl;
+	
 	if (!isfound) {
 		cout << "没有任何发生航班取消的机票" << endl;
+	}
+	else {
+		UI.RecommendFlightCancel();
 	}
 	cout << "按任意键返回主界面" << endl;
 	getchar();

@@ -77,6 +77,7 @@ void User::responseRefund_us(string grab_data, string grab_num, string grab_time
 		userflightnumfile.close();
 		userflightnumfile.open(userflightnumfilename, ios::in);
 	}
+
 	int userTicketnum = 0;
 	userflightnumfile >> userTicketnum;
 	userflightnumfile.close();

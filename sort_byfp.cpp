@@ -1,6 +1,7 @@
 #include "Flight.h"
 #include "User.h"
 #include <iostream>
+#include<iomanip>
 
 using namespace std;
 
@@ -31,12 +32,21 @@ void Flight::sort_byfp()	//对全部航班按票价排序并显示
 			fi=temp;
 		}
 		/*排序完成*/
-		cout<<"航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间\t余票数\t票价"<<endl;
+		cout << "航班日期 航班号\t起始地\t目的地\t起降时间\t飞行时间  余票数  票价  中转地\t中转时间 延误" << endl;
 		fi=f_ai->next;
 		while(fi!=NULL)
 		{
-			cout<<fi->data<<" "<<fi->num<<"\t"<<fi->start<<"\t"<<fi->end<<"\t"<<fi->time<<"\t"<<fi->at<<"\t\t"<<fi->count<<"\t"<<fi->price<<endl;
-			fi=fi->next;
+			cout.setf(ios::left);
+			cout << setw(8) << fi->data << " " << setw(7) << fi->num << " " << setw(5) << fi->start << "\t" << setw(5) << fi->end << "\t" <<
+				setw(11) << fi->time << "\t" << setw(3) << fi->at << "分钟" << "    " << setw(4) << fi->count << "  " << setw(5) << fi->price << "  "
+				<< setw(5) << fi->transit << "\t" << setw(3) << fi->transittime << "分钟" << "   ";
+			if (fi->isDelay) {
+				cout << "是" << endl;
+			}
+			else {
+				cout << "否" << endl;
+			}
+			fi = fi->next;
 		}
 		cin.sync();
 		cout<<"\n按任意键返回机票管理系统主页."<<endl;

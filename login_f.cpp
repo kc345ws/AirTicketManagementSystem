@@ -5,6 +5,7 @@
 #include <iostream>
 
 using namespace std;
+void browseMenu();
 
 void User::login_mf()	//管理员登陆机票管理系统
 {
@@ -79,6 +80,8 @@ void User::login_uf()	//用户登陆机票管理系统
 		case '9':grabbingTicket_us();//抢票
 			//temp->grabbingTicket_us();
 			break;
+		case 'Q':browseMenu();
+			break;
 		case '0':cout<<"即将退出'机票管理系统',并跳转到主界面..."<<endl;
 			Sleep(1000);
 			system("cls");
@@ -90,4 +93,60 @@ void User::login_uf()	//用户登陆机票管理系统
 			login_uf();
 		}
 	}while(choose()!=0);
+}
+
+void browseMenu() {
+	User UI;
+	Flight F;
+	cout << "请输入选项" << endl;
+	cout << "1.按机票升序排序浏览" << endl;
+	cout << "2.按机票降序排序浏览" << endl;
+	cout << "3.按飞行时间升序排序浏览" << endl;
+	cout << "4.按飞行时间降序排序浏览" << endl;
+	cout << "5.按余票数量升序排序浏览" << endl;
+	cout << "6.按余票数量降序排序浏览" << endl;
+	cout << "7.按中转时间升序排序浏览" << endl;
+	cout << "8.按中转时间降序排序浏览" << endl;
+	cout << "9.按航班日期升序排序浏览" << endl;
+	cout << "10.按航班日期降序排序浏览" << endl;
+	cout << "0.返回上一级菜单" << endl;
+	getchar();
+	int choice;
+	cin >> choice;
+	switch (choice)
+	{
+	case 1:
+		F.browse_fi_priceLTH();
+		break;
+	case 2:
+		F.sort_byfp();
+		break;
+	case 3:
+		F.browse_fi_atLTH();
+		break;
+	case 4:
+		F.browse_fi_atHTL();
+		break;
+	case 5:
+		F.browse_fi_countLTH();
+		break;
+	case 6:
+		F.browse_fi_countHTL();
+		break;
+	case 7:
+		F.browse_fi_transtimeLTH();
+		break;
+	case 8:
+		F.browse_fi_transtimeHTL();
+		break;
+	case 9:
+		F.browse_fi_dateLTH();
+		break;
+	case 10:
+		F.browse_fi_dateHTL();
+		break;
+	default:
+		UI.login_uf();
+		break;
+	}
 }
