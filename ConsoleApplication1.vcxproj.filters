@@ -22,6 +22,9 @@
     <Filter Include="源文件\UserTicket">
       <UniqueIdentifier>{9c4c7bfd-b550-4411-baba-24ea0826a6aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\City">
+      <UniqueIdentifier>{f3d8cc4b-88a0-4ec0-bb16-0711383de0a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,9 +62,6 @@
     </ClCompile>
     <ClCompile Include="order.cpp">
       <Filter>源文件\Flight</Filter>
-    </ClCompile>
-    <ClCompile Include="screen.cpp">
-      <Filter>源文件\User</Filter>
     </ClCompile>
     <ClCompile Include="search_fi.cpp">
       <Filter>源文件\Flight</Filter>
@@ -111,6 +111,15 @@
     <ClCompile Include="RecommendFlight.cpp">
       <Filter>源文件\User</Filter>
     </ClCompile>
+    <ClCompile Include="city_public.cpp">
+      <Filter>源文件\City</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph_List_City_public.cpp">
+      <Filter>源文件\City</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -120,6 +129,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="UserTicket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="City.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,10 +2,12 @@
 #include "Flight.h"
 #include "User.h"
 #include"UserTicket.h"
+#include"City.h"
 #include <iostream>
 
 using namespace std;
 void browseMenu();
+void cityMenu();
 
 void User::login_mf()	//管理员登陆机票管理系统
 {
@@ -35,6 +37,8 @@ void User::login_mf()	//管理员登陆机票管理系统
 		case '7':US.issueDelay_m();//发布航班延误
 			break;
 		case '8':US.issueCancel_m();//发布航班取消
+			break;
+		case '9':cityMenu();//城市信息管理
 			break;
 		case '0':cout<<"即将退出'机票管理系统',并跳转到主界面..."<<endl;
 			Sleep(1000);
@@ -98,6 +102,7 @@ void User::login_uf()	//用户登陆机票管理系统
 void browseMenu() {
 	User UI;
 	Flight F;
+	system("CLS");
 	cout << "请输入选项" << endl;
 	cout << "1.按机票升序排序浏览" << endl;
 	cout << "2.按机票降序排序浏览" << endl;
@@ -147,6 +152,31 @@ void browseMenu() {
 		break;
 	default:
 		UI.login_uf();
+		break;
+	}
+}
+
+void cityMenu() {
+	User UI;
+	Flight F;
+	system("CLS");
+	cout << "请输入选项" << endl;
+	cout << "1.添加城市信息" << endl;
+	cout << "2.查看城市信息" << endl;
+	cout << "0.返回上一级菜单" << endl;
+	getchar();
+	int choice;
+	cin >> choice;
+	switch (choice)
+	{
+	case 1:
+		ALLCITY->add_city();
+		break;
+	case 2:
+		GLCT->DFS_Main();
+		break;
+	default:
+		UI.login_mf();
 		break;
 	}
 }

@@ -22,11 +22,13 @@
     <ClCompile Include="add_fi.cpp" />
     <ClCompile Include="browse_fi.cpp" />
     <ClCompile Include="change_fi.cpp" />
+    <ClCompile Include="city_public.cpp" />
     <ClCompile Include="create_uif.cpp" />
     <ClCompile Include="delete_fi.cpp" />
     <ClCompile Include="flight_public_fun.cpp" />
     <ClCompile Include="getrefund_fi.cpp" />
     <ClCompile Include="grabbingTicket_us.cpp" />
+    <ClCompile Include="Graph_List_City_public.cpp" />
     <ClCompile Include="home.cpp" />
     <ClCompile Include="identify.cpp" />
     <ClCompile Include="issueCancel_m.cpp" />
@@ -50,6 +52,7 @@
     <ClCompile Include="user_public_fun.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="City.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Flight.h" />
     <ClInclude Include="UserTicket.h" />
