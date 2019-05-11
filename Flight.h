@@ -68,6 +68,8 @@ public:
 		void load_fil();								//把文件中航班信息装载到链表
 		void save_fil();								//保存链表中航班信息到文件中
 		void Inser_fi();								//把航班信息按日期顺序插入链表
+		void recommendTransit(string start,string end);						//推荐中转
+
 
 		void add_fi();			//添加航班信息
 		//void browse_fi(); 		//浏览航班信息

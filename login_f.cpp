@@ -68,7 +68,8 @@ void User::login_uf()	//用户登陆机票管理系统
 			break;
 		case '2':F.search_fi();
 			break;
-		case '3':F.sort_byfp();
+		case '3':GLCT->DFS_Main();
+			//F.sort_byfp();
 			break;
 		case '4':F.order();
 			break;
@@ -163,6 +164,7 @@ void cityMenu() {
 	cout << "请输入选项" << endl;
 	cout << "1.添加城市信息" << endl;
 	cout << "2.查看城市信息" << endl;
+	cout << "3.广度优先遍历" << endl;
 	cout << "0.返回上一级菜单" << endl;
 	getchar();
 	int choice;
@@ -174,6 +176,9 @@ void cityMenu() {
 		break;
 	case 2:
 		GLCT->DFS_Main();
+		break;
+	case 3:
+		GLCT->BFS_Main();
 		break;
 	default:
 		UI.login_mf();

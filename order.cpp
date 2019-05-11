@@ -11,6 +11,7 @@ void changechar(char ch[], int changeobjID, UserTicket::Ticket* info);//修改char
 void Flight::order()		//订票
 {
 	User U_AI;
+	Flight F;
 	int success=0;
 	bool exist = false;
 
@@ -138,7 +139,8 @@ void Flight::order()		//订票
 Nofind:	if(success==0)
 		{
 			system("cls");
-			cout<<"没有航班信息或已售空!"<<endl;
+			F.recommendTransit(fn->start, fn->end);
+			//cout<<"没有航班信息或已售空!"<<endl;
 			cout << "是否继续订票(y/n)?" << endl;
 			cin >> choice;
 			if (choice == "y" || choice == "Y") {
