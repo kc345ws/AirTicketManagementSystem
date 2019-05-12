@@ -25,7 +25,10 @@ class Graph_List_City {//城市的图的邻接表表示形式
 public:
 	Vertex_City* vertices;//顶点表的头指针
 	int GraphSize;//顶点的个数
-	
+
+	int* path;
+	int* dist;
+
 public:
 	Graph_List_City();
 	int* Visited;
@@ -38,6 +41,8 @@ public:
 	int getverticesIndex(string name);
 	bool Checkisconnected(const int index, int* visited,string endname);
 	bool CheckMain(string startname, string endname);
+
+	void Dijkstra_Distance(int start, Graph_List_City* G);
 };
 
 class City {
@@ -73,18 +78,4 @@ public:
 extern City* ALLCITY;
 extern Graph_List_City* GLCT;
 
-class Dijkstra {
-public:
-	const int maxnum = 100;
-	const int maxint = 999999;
-	// 各数组都从下标1开始
-	int* dist;     // 表示当前点到源点的最短路径长度
-	int* prev;     // 记录当前点的前一个结点
-	int* c;   // 记录图的两点间路径长度
-	int n, line;             // 图的结点数和路径数
-	bool* s;    // 判断是否已存入该点到S集合中
-
-	Dijkstra();
-	//Dijkstra_Distance(int n, int v, int* dist, int* prev, int c[1][1]);
-};
 #endif 

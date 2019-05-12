@@ -165,6 +165,7 @@ void cityMenu() {
 	cout << "1.添加城市信息" << endl;
 	cout << "2.查看城市信息" << endl;
 	cout << "3.广度优先遍历" << endl;
+	cout << "4.最短路径" << endl;
 	cout << "0.返回上一级菜单" << endl;
 	getchar();
 	int choice;
@@ -179,6 +180,9 @@ void cityMenu() {
 		break;
 	case 3:
 		GLCT->BFS_Main();
+		break;
+	case 4:
+		GLCT->Dijkstra_Distance(GLCT->getverticesIndex("长春"), GLCT);
 		break;
 	default:
 		UI.login_mf();

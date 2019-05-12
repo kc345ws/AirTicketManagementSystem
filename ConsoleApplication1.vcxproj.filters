@@ -123,9 +123,6 @@
     <ClCompile Include="recommendTransit.cpp">
       <Filter>源文件\Flight</Filter>
     </ClCompile>
-    <ClCompile Include="Dijkstra.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">

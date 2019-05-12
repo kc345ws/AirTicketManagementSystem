@@ -25,7 +25,6 @@
     <ClCompile Include="city_public.cpp" />
     <ClCompile Include="create_uif.cpp" />
     <ClCompile Include="delete_fi.cpp" />
-    <ClCompile Include="Dijkstra.cpp" />
     <ClCompile Include="flight_public_fun.cpp" />
     <ClCompile Include="getrefund_fi.cpp" />
     <ClCompile Include="grabbingTicket_us.cpp" />

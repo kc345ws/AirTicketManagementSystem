@@ -112,7 +112,12 @@ void Graph_List_City::DFS_Main()
 	cout << "按任意键返回" << endl;
 	getchar();
 	getchar();
-	UI.login_mf();
+	if (LoginedUser->mode == 1) {
+		UI.login_mf();
+	}
+	else {
+		UI.login_uf();
+	}
 }
 
 void Graph_List_City::BFS(const int v, int* vis)
@@ -238,4 +243,86 @@ bool Graph_List_City::CheckMain(string startname, string endname)
 	}
 	return false;
 }
+
+void Graph_List_City::Dijkstra_Distance(int start, Graph_List_City* G)
+{
+	int j, t, p;
+
+	//int path[G->GraphSize];
+	path = new int[G->GraphSize];
+
+	//int dist[G->n];
+	dist = new int[G->GraphSize];
+
+	for (int i = 0; i < G->GraphSize; i++) {
+		dist[i] = INT_MAX;//先各点到源点的距离设为无穷
+	}
+	
+	for (Edge_City* w = G->vertices[start].adjacent; w != NULL; w = w->next)
+	{
+		dist[w->verAdj] = w->distance;
+	}//初始化各顶点到源点的距离
+
+	dist[start] = 0;//源点到源点的距离设为0
+
+	for (int i = 0; i < G->GraphSize; i++)
+	{
+		if (dist[i] == INT_MAX) {
+			path[i] = -1;//如果某个点到源点的距离为无穷，前驱结点序号设为-1
+		}
+		else {
+			path[i] = start;
+		}
+	}
+
+	path[start] = -2;//源点的前驱结点序号设为-2
+
+	bool* collected = new bool[G->GraphSize]{false};
+
+	while (1)
+	{
+		t = INT_MAX;
+		j = -1;
+		for (int i = 0; i < G->GraphSize; i++)
+		{
+				if (collected[i] == false && dist[i] < t)//找到距离源点最近 次近...
+				{
+					t = dist[i];
+					j = i;
+				}
+		}
+		if (j == -1) {
+			break;
+		}
+		collected[j] = true;
+
+		for (Edge_City* w = G->vertices[j].adjacent; w != NULL; w = w->next)
+
+		{
+
+			p = w->verAdj;//邻接点的下标
+
+			if (dist[p] > dist[j] + w->distance) {//dist[p]为当前距离源点的距离
+				dist[p] = dist[j] + w->distance;
+
+				path[p] = j;//如果找到比当前更近的距离则更新该点的前驱结点
+			}
+			
+
+		}
+
+	}
+
+	/*for (int i = 0; i < GraphSize; i++) {
+		cout << vertices[i].verinfor << ":";
+		cout << path[i] << " " ;
+	}
+	cout << endl;
+	for (int i = 0; i < GraphSize; i++) {
+		cout << dist[i] << " " ;
+	}*/
+}
+
+
+
 

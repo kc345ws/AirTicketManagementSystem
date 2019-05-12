@@ -11,6 +11,7 @@ void User::print_login()	//打印登陆成功界面
 	cout<<"登陆成功!"<<endl;
 	cout<<"即将进入机票管理系统,请稍后..."<<endl;
 	Sleep(1000);
+	LoginedUser->mode = load_mode();
 	if((mode=load_mode())==1)
 		login_mf();
 	else if(mode==0)
