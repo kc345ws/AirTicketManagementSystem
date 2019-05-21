@@ -1,6 +1,7 @@
 #include"City.h"
 #include<iostream>
 #include"User.h"
+#include"Flight.h"
 #include<queue>
 #include<stack>
 using namespace std;
@@ -248,6 +249,8 @@ void Graph_List_City::Dijkstra_Distance(int start, Graph_List_City* G)
 {
 	int j, t, p;
 
+	//float DistanceSum = 0;
+
 	//int path[G->GraphSize];
 	path = new int[G->GraphSize];
 
@@ -305,9 +308,94 @@ void Graph_List_City::Dijkstra_Distance(int start, Graph_List_City* G)
 			if (dist[p] > dist[j] + w->distance) {//dist[p]为当前距离源点的距离
 				dist[p] = dist[j] + w->distance;
 
+				//DistanceSum += dist[p];
+
 				path[p] = j;//如果找到比当前更近的距离则更新该点的前驱结点
 			}
 			
+
+		}
+
+	}
+
+	//return DistanceSum;
+}
+
+
+void Graph_List_City::Dijkstra_Pirce(int start, Graph_List_City* G)
+{//根据价格推荐中转方案
+	Flight F;
+	F.load_fn();
+	F.load_fil();
+
+	int j, t, p;
+
+	//int path[G->GraphSize];
+	path = new int[G->GraphSize];
+
+	//int dist[G->n];
+	dist = new int[G->GraphSize];
+
+	for (int i = 0; i < G->GraphSize; i++) {
+		dist[i] = INT_MAX;//先各点到源点的价格设为无穷
+	}
+
+	for (Edge_City* w = G->vertices[start].adjacent; w != NULL; w = w->next)
+	{//遍历起飞城市的边结点
+
+		//dist[w->verAdj] = w->distance;
+		
+		dist[w->verAdj] = F.getAverage_price(G->vertices[start].verinfor, G->vertices[w->verAdj].verinfor);
+
+	}//初始化各顶点到源点的价格
+
+	dist[start] = 0;//源点到源点的价格设为0
+
+	for (int i = 0; i < G->GraphSize; i++)
+	{
+		if (dist[i] == INT_MAX) {
+			path[i] = -1;//如果某个点到源点的距离为无穷，前驱结点序号设为-1
+		}
+		else {
+			path[i] = start;
+		}
+	}
+
+	path[start] = -2;//源点的前驱结点序号设为-2
+
+	bool* collected = new bool[G->GraphSize]{ false };
+
+	while (1)
+	{
+		t = INT_MAX;
+		j = -1;
+		for (int i = 0; i < G->GraphSize; i++)
+		{
+			if (collected[i] == false && dist[i] < t)//找到距离源点最近 次近...
+			{
+				t = dist[i];
+				j = i;
+			}
+		}
+		if (j == -1) {
+			break;
+		}
+		collected[j] = true;
+
+		for (Edge_City* w = G->vertices[j].adjacent; w != NULL; w = w->next)
+
+		{
+
+			p = w->verAdj;//邻接点的下标
+
+			double TempPrice = F.getAverage_price(G->vertices[j].verinfor, G->vertices[w->verAdj].verinfor);
+
+			if (dist[p] > dist[j] + TempPrice) {//dist[p]为当前距离源点的距离
+				dist[p] = dist[j] + TempPrice;
+
+				path[p] = j;//如果找到比当前更近的距离则更新该点的前驱结点
+			}
+
 
 		}
 
@@ -321,6 +409,172 @@ void Graph_List_City::Dijkstra_Distance(int start, Graph_List_City* G)
 	for (int i = 0; i < GraphSize; i++) {
 		cout << dist[i] << " " ;
 	}*/
+}
+
+
+void Graph_List_City::Dijkstra_Time(int start, Graph_List_City* G)
+{
+	Flight F;
+	F.load_fn();
+	F.load_fil();
+
+	int j, t, p;
+
+	//int path[G->GraphSize];
+	path = new int[G->GraphSize];
+
+	//int dist[G->n];
+	dist = new int[G->GraphSize];
+
+	for (int i = 0; i < G->GraphSize; i++) {
+		dist[i] = INT_MAX;//先各点到源点的价格设为无穷
+	}
+
+	for (Edge_City* w = G->vertices[start].adjacent; w != NULL; w = w->next)
+	{//遍历起飞城市的边结点
+
+		//dist[w->verAdj] = w->distance;
+
+		//dist[w->verAdj] = F.getAverage_price(G->vertices[start].verinfor, G->vertices[w->verAdj].verinfor);
+		dist[w->verAdj] = F.getAverage_time(G->vertices[start].verinfor, G->vertices[w->verAdj].verinfor);
+
+	}//初始化各顶点到源点的价格
+
+	dist[start] = 0;//源点到源点的价格设为0
+
+	for (int i = 0; i < G->GraphSize; i++)
+	{
+		if (dist[i] == INT_MAX) {
+			path[i] = -1;//如果某个点到源点的距离为无穷，前驱结点序号设为-1
+		}
+		else {
+			path[i] = start;
+		}
+	}
+
+	path[start] = -2;//源点的前驱结点序号设为-2
+
+	bool* collected = new bool[G->GraphSize]{ false };
+
+	while (1)
+	{
+		t = INT_MAX;
+		j = -1;
+		for (int i = 0; i < G->GraphSize; i++)
+		{
+			if (collected[i] == false && dist[i] < t)//找到距离源点最近 次近...
+			{
+				t = dist[i];
+				j = i;
+			}
+		}
+		if (j == -1) {
+			break;
+		}
+		collected[j] = true;
+
+		for (Edge_City* w = G->vertices[j].adjacent; w != NULL; w = w->next)
+
+		{
+
+			p = w->verAdj;//邻接点的下标
+
+			//double TempPrice = F.getAverage_price(G->vertices[j].verinfor, G->vertices[w->verAdj].verinfor);
+			double TempPrice = F.getAverage_time(G->vertices[j].verinfor, G->vertices[w->verAdj].verinfor);
+			if (dist[p] > dist[j] + TempPrice) {//dist[p]为当前距离源点的距离
+				dist[p] = dist[j] + TempPrice;
+
+				path[p] = j;//如果找到比当前更近的距离则更新该点的前驱结点
+			}
+
+
+		}
+
+	}
+}
+
+
+void Graph_List_City::Dijkstra_Ticket(int start, Graph_List_City* G)
+{
+	Flight F;
+	F.load_fn();
+	F.load_fil();
+
+	int j, t, p;
+
+	//int path[G->GraphSize];
+	path = new int[G->GraphSize];
+
+	//int dist[G->n];
+	dist = new int[G->GraphSize];
+
+	for (int i = 0; i < G->GraphSize; i++) {
+		dist[i] = INT_MAX;//先各点到源点的价格设为无穷
+	}
+
+	for (Edge_City* w = G->vertices[start].adjacent; w != NULL; w = w->next)
+	{//遍历起飞城市的边结点
+
+		//dist[w->verAdj] = w->distance;
+
+		//dist[w->verAdj] = F.getAverage_price(G->vertices[start].verinfor, G->vertices[w->verAdj].verinfor);
+		//dist[w->verAdj] = F.getAverage_time(G->vertices[start].verinfor, G->vertices[w->verAdj].verinfor);
+		dist[w->verAdj] = F.getAverage_ticket(G->vertices[start].verinfor, G->vertices[w->verAdj].verinfor);
+
+	}//初始化各顶点到源点的价格
+
+	dist[start] = 0;//源点到源点的价格设为0
+
+	for (int i = 0; i < G->GraphSize; i++)
+	{
+		if (dist[i] == INT_MAX) {
+			path[i] = -1;//如果某个点到源点的距离为无穷，前驱结点序号设为-1
+		}
+		else {
+			path[i] = start;
+		}
+	}
+
+	path[start] = -2;//源点的前驱结点序号设为-2
+
+	bool* collected = new bool[G->GraphSize]{ false };
+
+	while (1)
+	{
+		t = INT_MAX;
+		j = -1;
+		for (int i = 0; i < G->GraphSize; i++)
+		{
+			if (collected[i] == false && dist[i] < t)//找到距离源点最近 次近...
+			{
+				t = dist[i];
+				j = i;
+			}
+		}
+		if (j == -1) {
+			break;
+		}
+		collected[j] = true;
+
+		for (Edge_City* w = G->vertices[j].adjacent; w != NULL; w = w->next)
+
+		{
+
+			p = w->verAdj;//邻接点的下标
+
+			//double TempPrice = F.getAverage_price(G->vertices[j].verinfor, G->vertices[w->verAdj].verinfor);
+			//double TempPrice = F.getAverage_time(G->vertices[j].verinfor, G->vertices[w->verAdj].verinfor);
+			double TempPrice = F.getAverage_ticket(G->vertices[j].verinfor, G->vertices[w->verAdj].verinfor);
+			if (dist[p] > dist[j] + TempPrice) {//dist[p]为当前距离源点的距离
+				dist[p] = dist[j] + TempPrice;
+
+				path[p] = j;//如果找到比当前更近的距离则更新该点的前驱结点
+			}
+
+
+		}
+
+	}
 }
 
 

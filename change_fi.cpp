@@ -239,31 +239,43 @@ char issucced() {//如果修改成功
 void changechar(char ch[],int changeobjID, Flight::FlightInfo* info) {//修改char类型的数据
 
 	if (changeobjID == 1) {//如果要修改航班日期
+		memset(info->data, '\0', sizeof(info->data));//清空原有信息
+
 		for (int i = 0; i < strlen(ch); i++) {
 			info->data[i] = ch[i];
 		}
 	}
 	else if (changeobjID == 2) {
+		memset(info->num, '\0', sizeof(info->num));//清空原有信息
+
 		for (int i = 0; i < strlen(ch); i++) {
 			info->num[i] = ch[i];
 		}
 	}
 	else if (changeobjID == 3) {
+		memset(info->start, '\0', sizeof(info->start));//清空原有信息
+
 		for (int i = 0; i < strlen(ch); i++) {
 			info->start[i] = ch[i];
 		}
 	}
 	else if (changeobjID == 4) {
+		memset(info->end, '\0', sizeof(info->end));//清空原有信息
+
 		for (int i = 0; i < strlen(ch); i++) {
 			info->end[i] = ch[i];
 		}
 	}
 	else if (changeobjID == 5) {
+		memset(info->time, '\0', sizeof(info->time));//清空原有信息
+
 		for (int i = 0; i < strlen(ch); i++) {
 			info->time[i] = ch[i];
 		}
 	}
 	else if (changeobjID == 6) {
+		memset(info->at, '\0', sizeof(info->at));//清空原有信息
+
 		for (int i = 0; i < strlen(ch); i++) {
 			info->at[i] = ch[i];
 		}

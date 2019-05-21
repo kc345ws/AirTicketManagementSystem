@@ -2,6 +2,7 @@
 #include "Flight.h"
 #include "User.h"
 #include <iostream>
+#include<stdio.h>
 
 using namespace std;
 
@@ -377,3 +378,146 @@ void Flight.h::save_lfui()	//保存登录系统的用户信息
 	
 int Flight.h::load_lfui()		//读取登录系统的用户信息
 */
+
+double Flight::getAverage_price(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	double pricesum = 0;//票价总和
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			pricesum += tempinfo->price;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		return (pricesum / countsum);
+	}
+	return INT_MAX;
+}
+
+double Flight::getAverage_time(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	double pricesum = 0;//票价总和
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			//pricesum += tempinfo->price;
+			double tempdouble;
+			sscanf(tempinfo->at, "%lf", &tempdouble);
+			pricesum += tempdouble;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		return (pricesum / countsum);
+	}
+	return INT_MAX;
+}
+
+double Flight::getAverage_ticket(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	double pricesum = 0;//票价总和
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			//pricesum += tempinfo->price;
+			double tempdouble = tempinfo->count;
+			//sscanf(tempinfo->count, "%lf", &tempdouble);
+			pricesum += tempdouble;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		//return (pricesum / countsum);
+		return pricesum/ countsum;
+	}
+	return INT_MAX;
+}
+
+int Flight::get_count(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			//pricesum += tempinfo->price;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		//return (pricesum / countsum);
+		return countsum;
+	}
+	return INT_MAX;
+}
+
+double Flight::getTicket_sum(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	double pricesum = 0;//票价总和
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			//pricesum += tempinfo->price;
+			double tempdouble = tempinfo->count;
+			//sscanf(tempinfo->count, "%lf", &tempdouble);
+			pricesum += tempdouble;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		//return (pricesum / countsum);
+		return pricesum;
+	}
+	return INT_MAX;
+}
+
+double Flight::getPrice_sum(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	double pricesum = 0;//票价总和
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			pricesum += tempinfo->price;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		return pricesum;
+	}
+	return INT_MAX;
+}

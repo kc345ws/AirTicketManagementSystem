@@ -12,6 +12,10 @@ void UserTicket::showTickets(bool isback) {
 	temp = LoginedUser->mg->userTicket->sentine;
 	if (!temp->next) {
 		cout << "没有购买任何机票" << endl;
+		cout << "按任意键返回主界面" << endl;
+		getchar();
+		getchar();
+		ui.login_uf();
 	}
 	else {
 		temp = temp->next;

@@ -36,13 +36,16 @@ public:
 	//void browsecity();
 	void DFSCity(const int v,int* visited);//深度优先遍历城市信息
 	void DFS_Main();
-	void BFS(const int v, int* vis);
+	void BFS(const int v, int* vis);//广度优先遍历
 	void BFS_Main();
-	int getverticesIndex(string name);
-	bool Checkisconnected(const int index, int* visited,string endname);
+	int getverticesIndex(string name);//通过城市名称获取在顶点表中的索引
+	bool Checkisconnected(const int index, int* visited,string endname);//检测城市之间是否连通
 	bool CheckMain(string startname, string endname);
 
-	void Dijkstra_Distance(int start, Graph_List_City* G);
+	void Dijkstra_Distance(int start, Graph_List_City* G);//按路程
+	void Dijkstra_Pirce(int start, Graph_List_City* G);//按价格
+	void Dijkstra_Time(int start, Graph_List_City* G);//按时间
+	void Dijkstra_Ticket(int start, Graph_List_City* G);//按剩余票数
 };
 
 class City {

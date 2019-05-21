@@ -71,6 +71,9 @@ public:
 
 		void recommendTransit(string start,string end);						//推荐中转
 		void mindistance(string start, string end);//按最短路程推荐中转航班
+		void minprice(string start, string end);//按最少平均票价推荐中转航班
+		void mintime(string start, string end);//按最少飞行时间
+		void minticket(string start, string end);//按最多平均剩余票数
 
 
 		void add_fi();			//添加航班信息
@@ -110,6 +113,14 @@ public:
 		void saveall_wait(string filename);			//保存某个航班的抢票队列信息
 		void load_waitnum(string filename);			//加载等待抢票的用户数量
 		void save_waitnum(string filename);			//保存等待抢票的用户数量
+
+		double getAverage_price(string start,string end);//获取平均票价
+		double getAverage_time(string start, string end);//获取平均时间
+		double getAverage_ticket(string start, string end);//获取平均剩余票数
+		int get_count(string start, string end);//获取该路线有几架次航班
+		double getTicket_sum(string start, string end);//获取剩余票数总量
+		double getPrice_sum(string start, string end);//获取票价总量
+		double getTime_sum(string start, string end);//获取时间总量
 };
 #endif // !1
 extern Flight* FLIGHT_WAIT;
