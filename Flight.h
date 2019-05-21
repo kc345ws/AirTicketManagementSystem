@@ -73,7 +73,8 @@ public:
 		void mindistance(string start, string end);//按最短路程推荐中转航班
 		void minprice(string start, string end);//按最少平均票价推荐中转航班
 		void mintime(string start, string end);//按最少飞行时间
-		void minticket(string start, string end);//按最多平均剩余票数
+		void minticket(string start, string end);//按最少平均剩余票数
+		void mintranstime(string start, string end);//按最少中转时间
 
 
 		void add_fi();			//添加航班信息
@@ -120,7 +121,8 @@ public:
 		int get_count(string start, string end);//获取该路线有几架次航班
 		double getTicket_sum(string start, string end);//获取剩余票数总量
 		double getPrice_sum(string start, string end);//获取票价总量
-		double getTime_sum(string start, string end);//获取时间总量
+		//double getTime_sum(string start, string end);//获取时间总量
+		double getAverage_transtime(string start, string end);//中转时间
 };
 #endif // !1
 extern Flight* FLIGHT_WAIT;

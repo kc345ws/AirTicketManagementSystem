@@ -46,6 +46,7 @@ public:
 	void Dijkstra_Pirce(int start, Graph_List_City* G);//按价格
 	void Dijkstra_Time(int start, Graph_List_City* G);//按时间
 	void Dijkstra_Ticket(int start, Graph_List_City* G);//按剩余票数
+	void Dijkstra_Transittime(int start, Graph_List_City* G);//按中转时间
 };
 
 class City {

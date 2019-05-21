@@ -521,3 +521,29 @@ double Flight::getPrice_sum(string start, string end)
 	}
 	return INT_MAX;
 }
+
+double Flight::getAverage_transtime(string start, string end)
+{
+	load_fn();
+	load_fil();
+	FlightInfo* tempinfo = flight->next;
+	bool isfound = false;
+	double pricesum = 0;//票价总和
+	int countsum = 0;//数量总和
+	while (tempinfo) {
+		if (tempinfo->start == start && tempinfo->end == end) {
+			isfound = true;
+			//pricesum += tempinfo->price;
+			double tempdouble = tempinfo->transittime;
+			//sscanf(tempinfo->count, "%lf", &tempdouble);
+			pricesum += tempdouble;
+			countsum++;
+		}
+		tempinfo = tempinfo->next;
+	}
+	if (isfound) {
+		//return (pricesum / countsum);
+		return pricesum / countsum;
+	}
+	return INT_MAX;
+}
