@@ -73,7 +73,7 @@ void User::login_uf()	//用户登陆机票管理系统
 			break;
 		case '4':F.order();
 			break;
-		case '5':LoginedUser->mg->userTicket->showTickets(false);
+		case '5':LoginedUser->mg->userTicket->showTickets(true);
 			break;
 		case '6':LoginedUser->mg->userTicket->showDelay_ut();
 			break;

@@ -59,7 +59,7 @@ void Flight::order()		//订票
 		input_sfi(0,1,0);
 		for(fi=flight->next;fi!=NULL;fi=fi->next)
 		{
-			if(strcmp(fi->num,fn->num)==0)
+			if(strcmp(fi->num,fn->num)==0 && strcmp(fi->data,fn->data) == 0)
 			{
 				if(fn->count<=0)//输入的定票数小于等于0
 				{
@@ -105,6 +105,16 @@ void Flight::order()		//订票
 					LoginedUser->mg->userTicket->addTicket(fi,fn->count);
 
 					//************************************************/
+					save_fil();
+					cout << "是否继续订票(y/n)?" << endl;
+					cin >> choice;
+					if (choice == "y" || choice == "Y") {
+						order();
+					}
+					else {
+						U_AI.login_uf();
+					}
+
 					break;
 				}
 				else if(fi->count>0 && fi->count<fn->count)
@@ -136,8 +146,21 @@ void Flight::order()		//订票
 				}
 			}
 		}
+
+		cout << "输入的信息有误" << endl;
+		cout << "是否继续订票(y/n)?" << endl;
+		cin >> choice;
+		if (choice == "y" || choice == "Y") {
+			order();
+		}
+		else {
+			U_AI.login_uf();
+		}
+		
+
+
 Nofind:	if(success==0)
-		{
+		{//无直达航班
 			system("cls");
 			F.recommendTransit(fn->start, fn->end);
 			//cout<<"没有航班信息或已售空!"<<endl;

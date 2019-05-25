@@ -364,6 +364,7 @@ void Graph_List_City::Dijkstra_Pirce(int start, Graph_List_City* G)
 	path[start] = -2;//源点的前驱结点序号设为-2
 
 	bool* collected = new bool[G->GraphSize]{ false };
+	//collected[start] = true;
 
 	while (1)
 	{

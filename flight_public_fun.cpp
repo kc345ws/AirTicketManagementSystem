@@ -154,8 +154,11 @@ void Flight::input_sfi(int note,int note1,int note2)	//输入需查找的航班信息
 		cout<<"\n请输入要订票的航班号:";
 		cin>>fn->num;
 		cin.sync();
-		cout<<"请输入订票数:";
+		cout << "\n请输入航班日期:";
+		cin >> fn->data;
+		cout<<"\n请输入订票数:";
 		cin>>fn->count;
+		
 	}
 	if(note2==1)
 	{
